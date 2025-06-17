@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        script-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self';
+        object-src 'none';
+        frame-ancestors 'none';
+      ">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mago.bet | Detalhes do Projeto</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-green: #0d1f0d;
+            --green: #1a471a;
+            --light-green: #2d6d2d;
+            --bright-green: #00cc66;
+            --black: #000000;
+            --white: #ffffff;
+            --light-gray: #f0f0f0;
+            --dark-gray: #222222;
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--bright-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .bg-dark {
+            background-color: var(--dark-green);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            border-color: var(--bright-green);
+            color: var(--bright-green);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 204, 102, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--bright-green);
+            color: var(--bright-green);
+            margin-left: 20px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 204, 102, 0.3);
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 31, 13, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--bright-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            animation: pulse 2s infinite;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu li {
+            margin-left: 40px;
+        }
+
+        .menu li a {
+            display: flex;
+            align-items: center;
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 18px;
+            gap: 10px;
+        }
+
+        .menu li a .menu-icon {
+            font-size: 20px;
+            width: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .menu li a:hover .menu-icon {
+            color: var(--bright-green);
+            transform: scale(1.2);
+        }
+
+        .menu li a:hover {
+            color: var(--bright-green);
+        }
+
+        .menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bright-green);
+            transition: width 0.3s ease;
+        }
+
+        .menu li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--bright-green);
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1001;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+
+
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        #back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 204, 102, 0.4);
+        }
+
+
+        #project-hero {
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/mago.png') center/cover no-repeat;
+        }
+
+        #project-hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding-top: 60px;
+        }
+
+        #project-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            animation: fadeInDown 1s ease;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .desktop-only {
+            display: inline;
+        }
+
+        #project-hero p {
+            font-size: 1.6rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--light-gray);
+            animation: fadeInUp 1s ease;
+            font-weight: 300;
+        }
+
+
+        #overview {
+            background-color: var(--dark-green);
+        }
+
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .overview-text {
+            padding: 30px;
+        }
+
+        .overview-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.4);
+            height: 500px;
+            background: url('img/pl.png') center/cover no-repeat;
+            position: relative;
+        }
+
+
+        #features {
+            text-align: center;
+            background: url('img/pe.png') center/cover fixed;
+            background-color: rgba(0,0,0,0.8);
+            background-blend-mode: multiply;
+            position: relative;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            background-color: rgba(13, 31, 13, 0.9);
+            padding: 50px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: var(--bright-green);
+        }
+
+        .feature-item .icon {
+            font-size: 60px;
+            color: var(--bright-green);
+            margin-bottom: 30px;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .feature-item p {
+            color: var(--light-gray);
+            font-size: 1.2rem;
+        }
+
+        #technology {
+            background: linear-gradient(45deg, var(--dark-green), var(--black));
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .tech-item {
+            padding: 40px 20px;
+            border-radius: 15px;
+            background-color: rgba(13, 31, 13, 0.7);
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--bright-green);
+        }
+
+        .tech-item i {
+            font-size: 60px;
+            color: var(--bright-green);
+            margin-bottom: 20px;
+        }
+
+
+        #roadmap {
+            background: url('img/ma.jpg') center/cover fixed;
+            background-color: rgba(0,0,0,0.8);
+            background-blend-mode: multiply;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 100px auto 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--bright-green);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--bright-green);
+            border: 4px solid var(--dark-green);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -12px;
+        }
+
+        .right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background-color: rgba(13, 31, 13, 0.9);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+
+        #team {
+            background-color: var(--dark-green);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--bright-green);
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background-color: var(--light-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--bright-green);
+        }
+
+
+        #contact {
+            background: linear-gradient(45deg, var(--dark-green), var(--black));
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            padding: 40px;
+            background-color: rgba(13, 31, 13, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        .contact-form {
+            padding: 40px;
+            background-color: rgba(13, 31, 13, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background-color: rgba(0,0,0,0.3);
+            color: var(--light-gray);
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--bright-green);
+            box-shadow: 0 0 15px rgba(0, 204, 102, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            margin: 40px 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .language-selector span {
+            font-size: 18px;
+            color: var(--light-gray);
+        }
+
+        .flags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .flags a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--light-gray);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            min-width: 80px;
+            cursor: pointer;
+        }
+
+        .flags a:hover {
+            background-color: rgba(0, 204, 102, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .flags img {
+            width: 40px;
+            height: 30px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 3px;
+            margin-bottom: 8px;
+        }
+
+        .flags span {
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            padding: 80px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--bright-green);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--dark-green);
+            color: var(--bright-green);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bright-green);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--bright-green);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-links .warning {
+            color: #ff6b6b;
+        }
+
+        footer p {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        @media (max-width: 1200px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .overview-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .overview-image {
+                order: -1;
+                height: 400px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--dark-green);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 120px;
+                transition: all 0.5s ease;
+                z-index: 999;
+                box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+            }
+
+            .menu.active {
+                left: 0;
+                z-index: 1002;
+            }
+
+            .menu li {
+                margin: 25px 0;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+            
+            #project-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            #project-hero p {
+                font-size: 1.3rem;
+            }
+            
+            .desktop-only {
+                display: none; 
+            }
+
+            .flags a {
+                min-width: 70px;
+                padding: 8px;
+            }
+            
+            .flags img {
+                width: 30px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #project-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .overview-image {
+                height: 250px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo span {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 2.2rem !important;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+            
+            #back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="#" class="logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </a>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="#overview">
+                        <i class="fas fa-eye menu-icon"></i>
+                        <span data-translate="menu_overview">Visão Geral</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#features">
+                        <i class="fas fa-star menu-icon"></i>
+                        <span data-translate="menu_features">Recursos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#technology">
+                        <i class="fas fa-microchip menu-icon"></i>
+                        <span data-translate="menu_technology">Tecnologia</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#roadmap">
+                        <i class="fas fa-map-signs menu-icon"></i>
+                        <span data-translate="menu_roadmap">Roadmap</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#team">
+                        <i class="fas fa-users menu-icon"></i>
+                        <span data-translate="menu_team">Equipe</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <i class="fas fa-envelope menu-icon"></i>
+                        <span data-translate="menu_contact">Contato</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section id="project-hero">
+        <div class="container">
+            <h1 data-translate="project_title">Detalhes do Projeto Mago.bet</h1>
+            <p data-translate="project_subtitle">Descubra a tecnologia e estratégia por trás da plataforma Mago.bet e o entretenimento que está revolucionando o mercado de jogos online.</p>
+            <div class="buttons">
+                <a href="#overview" class="btn btn-primary" data-translate="project_button">Explorar Detalhes</a>
+            </div>
+        </div>
+    </section>
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 data-translate="overview_title">Visão Geral do Projeto</h2>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p data-translate="overview_text1">O projeto Mago.bet nasceu da visão de criar uma plataforma de entretenimento digital premium que combina tecnologia de ponta com experiência de usuário excepcional. Nosso objetivo é oferecer uma alternativa inovadora no mercado de jogos online.</p>
+                    <p data-translate="overview_text2">Com mais de 18 meses de desenvolvimento, a Mago.bet foi construída por uma equipe multidisciplinar de especialistas em tecnologia, design de jogos e experiência do usuário. A plataforma utiliza algoritmos proprietários para garantir uma experiência justa e envolvente para todos os usuários.</p>
+                    <p data-translate="overview_text3">Nosso modelo de negócios é baseado em parcerias estratégicas com desenvolvedores de jogos e patrocinadores premium, permitindo oferecer uma experiência gratuita de alta qualidade enquanto preparamos nossa expansão para mercados internacionais.</p>
+                </div>
+                <div class="overview-image"></div>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="section">
+        <div class="container">
+            <h2 data-translate="features_title">Recursos Inovadores</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 60px; font-size: 1.4rem;" data-translate="features_subtitle">A Mago.bet incorpora tecnologias avançadas que transformam a experiência do usuário e definem novos padrões no setor.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 data-translate="feature1_title">Inteligência Artificial</h3>
+                    <p data-translate="feature1_text">Algoritmos de IA que aprendem com o comportamento do usuário para personalizar recomendações de jogos e criar desafios adaptativos que mantêm o engajamento.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-translate="feature2_title">Segurança Avançada</h3>
+                    <p data-translate="feature2_text">Sistema de segurança multicamadas com criptografia de ponta a ponta e protocolos anti-fraude que garantem proteção total para usuários e transações.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 data-translate="feature3_title">Experiência Unificada</h3>
+                    <p data-translate="feature3_text">Progresso sincronizado em todos os dispositivos com transições perfeitas entre desktop e mobile, garantindo continuidade na experiência do usuário.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-translate="feature4_title">Analytics em Tempo Real</h3>
+                    <p data-translate="feature4_text">Dashboard de analytics que monitora o engajamento dos usuários e otimiza a plataforma continuamente com base em dados comportamentais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="technology" class="section">
+        <div class="container">
+            <h2 data-translate="technology_title">Tecnologia de Ponta</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 60px; font-size: 1.4rem;" data-translate="technology_subtitle">Nossa plataforma é construída com a stack tecnológica mais moderna e escalável do mercado.</p>
+            
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <i class="fab fa-react"></i>
+                    <h3 data-translate="tech1_title">React 18</h3>
+                    <p data-translate="tech1_text">Frontend de alto desempenho com renderização otimizada e componentes reutilizáveis</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-node-js"></i>
+                    <h3 data-translate="tech2_title">Node.js 18</h3>
+                    <p data-translate="tech2_text">Backend escalável com arquitetura de microsserviços e balanceamento de carga</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <h3 data-translate="tech3_title">MongoDB Atlas</h3>
+                    <p data-translate="tech3_text">Banco de dados NoSQL distribuído globalmente com replicação automática</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cloud"></i>
+                    <h3 data-translate="tech4_title">AWS Cloud</h3>
+                    <p data-translate="tech4_text">Infraestrutura em nuvem com auto-scaling e distribuição global de conteúdo</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-robot"></i>
+                    <h3 data-translate="tech5_title">TensorFlow.js</h3>
+                    <p data-translate="tech5_text">Machine learning para personalização e detecção de padrões comportamentais</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-lock"></i>
+                    <h3 data-translate="tech6_title">OAuth 2.0</h3>
+                    <p data-translate="tech6_text">Autenticação avançada com múltiplos fatores e verificação biométrica</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="roadmap" class="section">
+        <div class="container">
+            <h2 data-translate="roadmap_title">Roadmap Estratégico</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 60px; font-size: 1.4rem;" data-translate="roadmap_subtitle">Nossa trajetória de desenvolvimento e planos futuros para expansão global.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 data-translate="roadmap1_title">Fase 1: Conceito e Protótipo</h3>
+                        <p data-translate="roadmap1_text">Q3 2023 - Definição da visão do produto, pesquisa de mercado e desenvolvimento do MVP</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 data-translate="roadmap2_title">Fase 2: Lançamento Beta</h3>
+                        <p data-translate="roadmap2_text">Q1 2024 - Testes fechados com usuários selecionados, otimização de desempenho e UX</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 data-translate="roadmap3_title">Fase 3: Lançamento Oficial</h3>
+                        <p data-translate="roadmap3_text">Q3 2024 - Versão completa com biblioteca de jogos premium e sistema de recompensas</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 data-translate="roadmap4_title">Fase 4: Expansão Internacional</h3>
+                        <p data-translate="roadmap4_text">Q1 2025 - Entrada em mercados estratégicos com localização em 5 idiomas</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 data-translate="roadmap5_title">Fase 5: Web3 Integrado</h3>
+                        <p data-translate="roadmap5_text">Q4 2025 - Implementação de NFTs, criptomoeda própria e jogos blockchain</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="team" class="section">
+        <div class="container">
+            <h2 data-translate="team_title">Nossa Equipe</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 60px; font-size: 1.4rem;" data-translate="team_subtitle">Especialistas com mais de 50 anos de experiência combinada no setor de tecnologia e entretenimento.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 data-translate="team1_name">Carlos Silva</h3>
+                    <p data-translate="team1_role">CEO & Fundador</p>
+                    <p data-translate="team1_desc">Ex-executivo de grandes empresas de tecnologia com 15+ anos de experiência</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 data-translate="team2_name">Amanda Torres</h3>
+                    <p data-translate="team2_role">CTO</p>
+                    <p data-translate="team2_desc">Especialista em arquitetura de sistemas escaláveis e tecnologias emergentes</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 data-translate="team3_name">Ricardo Mendes</h3>
+                    <p data-translate="team3_role">Diretor de Produto</p>
+                    <p data-translate="team3_desc">Veterano no design de experiências de usuário para plataformas de jogos</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 data-translate="team4_name">Fernanda Oliveira</h3>
+                    <p data-translate="team4_role">Chefe de Segurança</p>
+                    <p data-translate="team4_desc">Especialista em cibersegurança com certificações internacionais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 data-translate="contact_title">Contato para Parcerias</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 60px; font-size: 1.4rem;" data-translate="contact_subtitle">Interessado em colaborar ou investir no projeto? Entre em contato com nossa equipe.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 data-translate="contact_info_title">Informações de Contato</h3>
+                    <p style="margin-bottom: 30px;" data-translate="contact_info_desc">Estamos abertos a parcerias estratégicas com desenvolvedores de jogos, investidores e especialistas em tecnologia.</p>
+                    
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 20px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-envelope" style="font-size: 24px; color: var(--bright-green); margin-right: 15px;"></i>
+                            <span><strong data-translate="contact_email">Email:</strong> projetos@mago.bet</span>
+                        </li>
+                        <li style="margin-bottom: 20px; display: flex; align-items: flex-start;">
+                            <i class="fab fa-instagram" style="font-size: 24px; color: var(--bright-green); margin-right: 15px;"></i>
+                            <span><strong data-translate="contact_instagram">Instagram:</strong> @mago.bet777</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mago.bet777?igsh=c2Z4aGNzdzRieXYz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1HQ9xi4Md6/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/calos-da-silva-mendes-85149536b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="Termos.html" data-translate="footer_terms">Termos de Uso</a>
+                    <a href="Privacidade.html" data-translate="footer_privacy">Política de Privacidade</a>
+                    <a href="Aviso18.html" class="warning" data-translate="footer_warning">Aviso: Conteúdo 18+</a>
+                    <a href="Responsavel.html" data-translate="footer_responsible">Jogo Responsável</a>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <span data-translate="language_selector">Selecione seu idioma:</span>
+                    <div class="flags">
+                        <a data-lang="pt">
+                            <img src="img/br.png" srcset="img/br.png 2x" width="40" alt="Brasil">
+                            <span>Português</span>
+                        </a>
+                        <a data-lang="en">
+                            <img src="img/us.png" srcset="img/us.png 2x" width="40" alt="Estados Unidos">
+                            <span>English</span>
+                        </a>
+                        <a data-lang="ru">
+                            <img src="img/ru.png" srcset="img/ru.png 2x" width="40" alt="Rússia">
+                            <span>Русский</span>
+                        </a>
+                        <a data-lang="de">
+                            <img src="img/de.png" srcset="img/de.png 2x" width="40" alt="Alemanha">
+                            <span>Deutsch</span>
+                        </a>
+                        <a data-lang="zh">
+                            <img src="img/cn.png" srcset="img/cn.png 2x" width="40" alt="China">
+                            <span>中文</span>
+                        </a>
+                        <a data-lang="it">
+                            <img src="img/it.png" srcset="img/it.png 2x" width="40" alt="Itália">
+                            <span>Italiano</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <p data-translate="footer_copyright">© 2025 Mago.bet – Todos os direitos reservados. Mago.bet é uma marca registrada da Visionary Entertainment Group.</p>
+            </div>
+        </div>
+    </footer>
+    <div id="back-to-top" title="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Sistema de tradução completo
+        const translations = {
+            pt: {
+                menu_overview: "Visão Geral",
+                menu_features: "Recursos",
+                menu_technology: "Tecnologia",
+                menu_roadmap: "Roadmap",
+                menu_team: "Equipe",
+                menu_contact: "Contato",
+                project_title: "Detalhes do Projeto Mago.bet",
+                project_subtitle: "Descubra a tecnologia e estratégia por trás da plataforma Mago.bet e o entretenimento que está revolucionando o mercado de jogos online.",
+                project_button: "Explorar Detalhes",
+                overview_title: "Visão Geral do Projeto",
+                overview_text1: "O projeto Mago.bet nasceu da visão de criar uma plataforma de entretenimento digital premium que combina tecnologia de ponta com experiência de usuário excepcional. Nosso objetivo é oferecer uma alternativa inovadora no mercado de jogos online.",
+                overview_text2: "Com mais de 18 meses de desenvolvimento, a Mago.bet foi construída por uma equipe multidisciplinar de especialistas em tecnologia, design de jogos e experiência do usuário. A plataforma utiliza algoritmos proprietários para garantir uma experiência justa e envolvente para todos os usuários.",
+                overview_text3: "Nosso modelo de negócios é baseado em parcerias estratégicas com desenvolvedores de jogos e patrocinadores premium, permitindo oferecer uma experiência gratuita de alta qualidade enquanto preparamos nossa expansão para mercados internacionais.",
+                features_title: "Recursos Inovadores",
+                features_subtitle: "A Mago.bet incorpora tecnologias avançadas que transformam a experiência do usuário e definem novos padrões no setor.",
+                feature1_title: "Inteligência Artificial",
+                feature1_text: "Algoritmos de IA que aprendem com o comportamento do usuário para personalizar recomendações de jogos e criar desafios adaptativos que mantêm o engajamento.",
+                feature2_title: "Segurança Avançada",
+                feature2_text: "Sistema de segurança multicamadas com criptografia de ponta a ponta e protocolos anti-fraude que garantem proteção total para usuários e transações.",
+                feature3_title: "Experiência Unificada",
+                feature3_text: "Progresso sincronizado em todos os dispositivos com transições perfeitas entre desktop e mobile, garantindo continuidade na experiência do usuário.",
+                feature4_title: "Analytics em Tempo Real",
+                feature4_text: "Dashboard de analytics que monitora o engajamento dos usuários e otimiza a plataforma continuamente com base em dados comportamentais.",
+                technology_title: "Tecnologia de Ponta",
+                technology_subtitle: "Nossa plataforma é construída com a stack tecnológica mais moderna e escalável do mercado.",
+                tech1_title: "React 18",
+                tech1_text: "Frontend de alto desempenho com renderização otimizada e componentes reutilizáveis",
+                tech2_title: "Node.js 18",
+                tech2_text: "Backend escalável com arquitetura de microsserviços e balanceamento de carga",
+                tech3_title: "MongoDB Atlas",
+                tech3_text: "Banco de dados NoSQL distribuído globalmente com replicação automática",
+                tech4_title: "AWS Cloud",
+                tech4_text: "Infraestrutura em nuvem com auto-scaling e distribuição global de conteúdo",
+                tech5_title: "TensorFlow.js",
+                tech5_text: "Machine learning para personalização e detecção de padrões comportamentais",
+                tech6_title: "OAuth 2.0",
+                tech6_text: "Autenticação avançada com múltiplos fatores e verificação biométrica",
+                roadmap_title: "Roadmap Estratégico",
+                roadmap_subtitle: "Nossa trajetória de desenvolvimento e planos futuros para expansão global.",
+                roadmap1_title: "Fase 1: Conceito e Protótipo",
+                roadmap1_text: "Q3 2023 - Definição da visão do produto, pesquisa de mercado e desenvolvimento do MVP",
+                roadmap2_title: "Fase 2: Lançamento Beta",
+                roadmap2_text: "Q1 2024 - Testes fechados com usuários selecionados, otimização de desempenho e UX",
+                roadmap3_title: "Fase 3: Lançamento Oficial",
+                roadmap3_text: "Q3 2024 - Versão completa com biblioteca de jogos premium e sistema de recompensas",
+                roadmap4_title: "Fase 4: Expansão Internacional",
+                roadmap4_text: "Q1 2025 - Entrada em mercados estratégicos com localização em 5 idiomas",
+                roadmap5_title: "Fase 5: Web3 Integrado",
+                roadmap5_text: "Q4 2025 - Implementação de NFTs, criptomoeda própria e jogos blockchain",
+                team_title: "Nossa Equipe",
+                team_subtitle: "Especialistas com mais de 50 anos de experiência combinada no setor de tecnologia e entretenimento.",
+                team1_name: "Carlos Silva",
+                team1_role: "CEO & Fundador",
+                team1_desc: "Ex-executivo de grandes empresas de tecnologia com 15+ anos de experiência",
+                team2_name: "Amanda Torres",
+                team2_role: "CTO",
+                team2_desc: "Especialista em arquitetura de sistemas escaláveis e tecnologias emergentes",
+                team3_name: "Ricardo Mendes",
+                team3_role: "Diretor de Produto",
+                team3_desc: "Veterano no design de experiências de usuário para plataformas de jogos",
+                team4_name: "Fernanda Oliveira",
+                team4_role: "Chefe de Segurança",
+                team4_desc: "Especialista em cibersegurança com certificações internacionais",
+                contact_title: "Contato para Parcerias",
+                contact_subtitle: "Interessado em colaborar ou investir no projeto? Entre em contato com nossa equipe.",
+                contact_info_title: "Informações de Contato",
+                contact_info_desc: "Estamos abertos a parcerias estratégicas com desenvolvedores de jogos, investidores e especialistas em tecnologia.",
+                contact_email: "Email:",
+                contact_instagram: "Instagram:",
+                footer_terms: "Termos de Uso",
+                footer_privacy: "Política de Privacidade",
+                footer_warning: "Aviso: Conteúdo 18+",
+                footer_responsible: "Jogo Responsável",
+                footer_copyright: "© 2025 Mago.bet – Todos os direitos reservados. Mago.bet é uma marca registrada da Visionary Entertainment Group.",
+                language_selector: "Selecione seu idioma:"
+            },
+            en: {
+                menu_overview: "Overview",
+                menu_features: "Features",
+                menu_technology: "Technology",
+                menu_roadmap: "Roadmap",
+                menu_team: "Team",
+                menu_contact: "Contact",
+                project_title: "Mago.bet Project Details",
+                project_subtitle: "Discover the technology and strategy behind the Mago.bet platform and the entertainment revolutionizing the online gaming market.",
+                project_button: "Explore Details",
+                overview_title: "Project Overview",
+                overview_text1: "The Mago.bet project was born from the vision of creating a premium digital entertainment platform that combines cutting-edge technology with exceptional user experience. Our goal is to offer an innovative alternative in the online gaming market.",
+                overview_text2: "After more than 18 months of development, Mago.bet was built by a multidisciplinary team of experts in technology, game design, and user experience. The platform uses proprietary algorithms to ensure a fair and engaging experience for all users.",
+                overview_text3: "Our business model is based on strategic partnerships with game developers and premium sponsors, allowing us to offer a free high-quality experience while preparing for our expansion into international markets.",
+                features_title: "Innovative Features",
+                features_subtitle: "Mago.bet incorporates advanced technologies that transform the user experience and set new standards in the industry.",
+                feature1_title: "Artificial Intelligence",
+                feature1_text: "AI algorithms that learn from user behavior to personalize game recommendations and create adaptive challenges that maintain engagement.",
+                feature2_title: "Advanced Security",
+                feature2_text: "Multi-layered security system with end-to-end encryption and anti-fraud protocols that ensure complete protection for users and transactions.",
+                feature3_title: "Unified Experience",
+                feature3_text: "Progress synchronized across all devices with seamless transitions between desktop and mobile, ensuring continuity in the user experience.",
+                feature4_title: "Real-Time Analytics",
+                feature4_text: "Analytics dashboard that monitors user engagement and continuously optimizes the platform based on behavioral data.",
+                technology_title: "Cutting-Edge Technology",
+                technology_subtitle: "Our platform is built with the most modern and scalable technology stack on the market.",
+                tech1_title: "React 18",
+                tech1_text: "High-performance frontend with optimized rendering and reusable components",
+                tech2_title: "Node.js 18",
+                tech2_text: "Scalable backend with microservices architecture and load balancing",
+                tech3_title: "MongoDB Atlas",
+                tech3_text: "Globally distributed NoSQL database with automatic replication",
+                tech4_title: "AWS Cloud",
+                tech4_text: "Cloud infrastructure with auto-scaling and global content distribution",
+                tech5_title: "TensorFlow.js",
+                tech5_text: "Machine learning for personalization and behavioral pattern detection",
+                tech6_title: "OAuth 2.0",
+                tech6_text: "Advanced authentication with multi-factor and biometric verification",
+                roadmap_title: "Strategic Roadmap",
+                roadmap_subtitle: "Our development trajectory and future plans for global expansion.",
+                roadmap1_title: "Phase 1: Concept & Prototype",
+                roadmap1_text: "Q3 2023 - Product vision definition, market research, and MVP development",
+                roadmap2_title: "Phase 2: Beta Launch",
+                roadmap2_text: "Q1 2024 - Closed testing with selected users, performance and UX optimization",
+                roadmap3_title: "Phase 3: Official Launch",
+                roadmap3_text: "Q3 2024 - Full version with premium game library and rewards system",
+                roadmap4_title: "Phase 4: International Expansion",
+                roadmap4_text: "Q1 2025 - Entry into strategic markets with localization in 5 languages",
+                roadmap5_title: "Phase 5: Integrated Web3",
+                roadmap5_text: "Q4 2025 - Implementation of NFTs, proprietary cryptocurrency, and blockchain games",
+                team_title: "Our Team",
+                team_subtitle: "Experts with over 50 years of combined experience in the technology and entertainment industry.",
+                team1_name: "Carlos Silva",
+                team1_role: "CEO & Founder",
+                team1_desc: "Former executive of major technology companies with 15+ years of experience",
+                team2_name: "Amanda Torres",
+                team2_role: "CTO",
+                team2_desc: "Expert in scalable system architecture and emerging technologies",
+                team3_name: "Ricardo Mendes",
+                team3_role: "Product Director",
+                team3_desc: "Veteran in designing user experiences for gaming platforms",
+                team4_name: "Fernanda Oliveira",
+                team4_role: "Security Chief",
+                team4_desc: "Cybersecurity specialist with international certifications",
+                contact_title: "Partnership Contact",
+                contact_subtitle: "Interested in collaborating or investing in the project? Contact our team.",
+                contact_info_title: "Contact Information",
+                contact_info_desc: "We are open to strategic partnerships with game developers, investors, and technology experts.",
+                contact_email: "Email:",
+                contact_instagram: "Instagram:",
+                footer_terms: "Terms of Use",
+                footer_privacy: "Privacy Policy",
+                footer_warning: "Warning: 18+ Content",
+                footer_responsible: "Responsible Gaming",
+                footer_copyright: "© 2025 Mago.bet – All rights reserved. Mago.bet is a registered trademark of Visionary Entertainment Group.",
+                language_selector: "Select your language:"
+            },
+            ru: {
+                menu_overview: "Обзор",
+                menu_features: "Особенности",
+                menu_technology: "Технологии",
+                menu_roadmap: "Дорожная карта",
+                menu_team: "Команда",
+                menu_contact: "Контакты",
+                project_title: "Детали проекта Mago.bet",
+                project_subtitle: "Узнайте о технологиях и стратегии платформы Mago.bet и развлечениях, которые революционизируют рынок онлайн-игр.",
+                project_button: "Изучить детали",
+                overview_title: "Обзор проекта",
+                overview_text1: "Проект Mago.bet родился из видения создания премиальной платформы цифровых развлечений, сочетающей передовые технологии с исключительным пользовательским опытом. Наша цель — предложить инновационную альтернативу на рынке онлайн-игр.",
+                overview_text2: "После более чем 18 месяцев разработки Mago.bet была создана многопрофильной командой экспертов в области технологий, дизайна игр и пользовательского опыта. Платформа использует проприетарные алгоритмы, чтобы обеспечить справедливый и увлекательный опыт для всех пользователей.",
+                overview_text3: "Наша бизнес-модель основана на стратегическом партнерстве с разработчиками игр и премиальными спонсорами, что позволяет нам предлагать бесплатный высококачественный опыт, готовясь к выходу на международные рынки.",
+                features_title: "Инновационные особенности",
+                features_subtitle: "Mago.bet включает передовые технологии, которые преобразуют пользовательский опыт и устанавливают новые стандарты в отрасли.",
+                feature1_title: "Искусственный интеллект",
+                feature1_text: "Алгоритмы ИИ, которые учатся на поведении пользователей, чтобы персонализировать рекомендации игр и создавать адаптивные задачи, поддерживающие вовлеченность.",
+                feature2_title: "Продвинутая безопасность",
+                feature2_text: "Многоуровневая система безопасности с сквозным шифрованием и анти-фрод протоколами, обеспечивающая полную защиту пользователей и транзакций.",
+                feature3_title: "Единый опыт",
+                feature3_text: "Прогресс синхронизирован на всех устройствах с плавными переходами между десктопом и мобильным, обеспечивая непрерывность пользовательского опыта.",
+                feature4_title: "Аналитика в реальном времени",
+                feature4_text: "Панель аналитики, которая отслеживает вовлеченность пользователей и непрерывно оптимизирует платформу на основе поведенческих данных.",
+                technology_title: "Передовые технологии",
+                technology_subtitle: "Наша платформа построена на самой современной и масштабируемой технологической стэке на рынке.",
+                tech1_title: "React 18",
+                tech1_text: "Высокопроизводительный фронтенд с оптимизированным рендерингом и переиспользуемыми компонентами",
+                tech2_title: "Node.js 18",
+                tech2_text: "Масштабируемый бэкенд с архитектурой микросервисов и балансировкой нагрузки",
+                tech3_title: "MongoDB Atlas",
+                tech3_text: "Глобально распределенная NoSQL база данных с автоматической репликацией",
+                tech4_title: "AWS Cloud",
+                tech4_text: "Облачная инфраструктура с авто-масштабированием и глобальным распределением контента",
+                tech5_title: "TensorFlow.js",
+                tech5_text: "Машинное обучение для персонализации и обнаружения поведенческих паттернов",
+                tech6_title: "OAuth 2.0",
+                tech6_text: "Продвинутая аутентификация с многофакторной и биометрической верификацией",
+                roadmap_title: "Стратегическая дорожная карта",
+                roadmap_subtitle: "Наша траектория развития и планы на будущее для глобальной экспансии.",
+                roadmap1_title: "Фаза 1: Концепция и Прототип",
+                roadmap1_text: "Q3 2023 - Определение видения продукта, исследование рынка и разработка MVP",
+                roadmap2_title: "Фаза 2: Бета-запуск",
+                roadmap2_text: "Q1 2024 - Закрытое тестирование с отобранными пользователями, оптимизация производительности и UX",
+                roadmap3_title: "Фаза 3: Официальный запуск",
+                roadmap3_text: "Q3 2024 - Полная версия с премиальной игровой библиотекой и системой вознаграждений",
+                roadmap4_title: "Фаза 4: Международная экспансия",
+                roadmap4_text: "Q1 2025 - Выход на стратегические рынки с локализацией на 5 языках",
+                roadmap5_title: "Фаза 5: Интегрированный Web3",
+                roadmap5_text: "Q4 2025 - Внедрение NFT, собственной криптовалюты и блокчейн-игр",
+                team_title: "Наша команда",
+                team_subtitle: "Эксперты с более чем 50 годами совокупного опыта в технологиях и индустрии развлечений.",
+                team1_name: "Карлос Силва",
+                team1_role: "CEO & Основатель",
+                team1_desc: "Бывший руководитель крупных технологических компаний с 15+ годами опыта",
+                team2_name: "Аманда Торрес",
+                team2_role: "CTO",
+                team2_desc: "Эксперт по масштабируемой архитектуре систем и новым технологиям",
+                team3_name: "Рикардо Мендес",
+                team3_role: "Директор по продукту",
+                team3_desc: "Ветеран в проектировании пользовательского опыта для игровых платформ",
+                team4_name: "Фернанда Оливейра",
+                team4_role: "Руководитель безопасности",
+                team4_desc: "Специалист по кибербезопасности с международными сертификатами",
+                contact_title: "Контакты для партнерства",
+                contact_subtitle: "Заинтересованы в сотрудничестве или инвестировании в проект? Свяжитесь с нашей командой.",
+                contact_info_title: "Контактная информация",
+                contact_info_desc: "Мы открыты для стратегического партнерства с разработчиками игр, инвесторами и экспертами в области технологий.",
+                contact_email: "Email:",
+                contact_instagram: "Instagram:",
+                footer_terms: "Условия использования",
+                footer_privacy: "Политика конфиденциальности",
+                footer_warning: "Предупреждение: Контент 18+",
+                footer_responsible: "Ответственная игра",
+                footer_copyright: "© 2025 Mago.bet – Все права защищены. Mago.bet является зарегистрированным товарным знаком Visionary Entertainment Group.",
+                language_selector: "Выберите язык:"
+            },
+            de: {
+                menu_overview: "Überblick",
+                menu_features: "Funktionen",
+                menu_technology: "Technologie",
+                menu_roadmap: "Roadmap",
+                menu_team: "Team",
+                menu_contact: "Kontakt",
+                project_title: "Mago.bet Projekt-Details",
+                project_subtitle: "Entdecken Sie die Technologie und Strategie hinter der Mago.bet-Plattform und die Unterhaltung, die den Online-Spielemarkt revolutioniert.",
+                project_button: "Details erkunden",
+                overview_title: "Projektüberblick",
+                overview_text1: "Das Mago.bet-Projekt entstand aus der Vision, eine Premium-Plattform für digitale Unterhaltung zu schaffen, die modernste Technologie mit außergewöhnlichem Benutzererlebnis verbindet. Unser Ziel ist es, eine innovative Alternative auf dem Online-Spielemarkt anzubieten.",
+                overview_text2: "Nach mehr als 18 Monaten Entwicklung wurde Mago.bet von einem multidisziplinären Team von Experten für Technologie, Spieledesign und Benutzererfahrung aufgebaut. Die Plattform nutzt proprietäre Algorithmen, um ein faires und fesselndes Erlebnis für alle Benutzer zu gewährleisten.",
+                overview_text3: "Unser Geschäftsmodell basiert auf strategischen Partnerschaften mit Spieleentwicklern und Premium-Sponsoren, die es uns ermöglichen, ein kostenloses hochwertiges Erlebnis anzubieten, während wir unsere Expansion in internationale Märkte vorbereiten.",
+                features_title: "Innovative Funktionen",
+                features_subtitle: "Mago.bet integriert fortschrittliche Technologien, die das Benutzererlebnis transformieren und neue Standards in der Branche setzen.",
+                feature1_title: "Künstliche Intelligenz",
+                feature1_text: "KI-Algorithmen, die aus dem Benutzerverhalten lernen, um Spiel-Empfehlungen zu personalisieren und adaptive Herausforderungen zu schaffen, die die Bindung aufrechterhalten.",
+                feature2_title: "Erweiterte Sicherheit",
+                feature2_text: "Mehrschichtiges Sicherheitssystem mit Ende-zu-Ende-Verschlüsselung und Anti-Betrugsprotokollen, die vollständigen Schutz für Benutzer und Transaktionen gewährleisten.",
+                feature3_title: "Vereinheitlichtes Erlebnis",
+                feature3_text: "Fortschritt über alle Geräte synchronisiert mit nahtlosen Übergängen zwischen Desktop und Mobilgerät, was Kontinuität im Benutzererlebnis sicherstellt.",
+                feature4_title: "Echtzeit-Analytik",
+                feature4_text: "Analytik-Dashboard, das die Benutzerbindung überwacht und die Plattform kontinuierlich auf Basis von Verhaltensdaten optimiert.",
+                technology_title: "Hochmoderne Technologie",
+                technology_subtitle: "Unsere Plattform ist mit dem modernsten und skalierbarsten Technologie-Stack auf dem Markt aufgebaut.",
+                tech1_title: "React 18",
+                tech1_text: "Hochleistungs-Frontend mit optimiertem Rendering und wiederverwendbaren Komponenten",
+                tech2_title: "Node.js 18",
+                tech2_text: "Skalierbares Backend mit Microservice-Architektur und Lastverteilung",
+                tech3_title: "MongoDB Atlas",
+                tech3_text: "Global verteilte NoSQL-Datenbank mit automatischer Replikation",
+                tech4_title: "AWS Cloud",
+                tech4_text: "Cloud-Infrastruktur mit automatischer Skalierung und globaler Inhaltsverteilung",
+                tech5_title: "TensorFlow.js",
+                tech5_text: "Maschinelles Lernen für Personalisierung und Verhaltensmuster-Erkennung",
+                tech6_title: "OAuth 2.0",
+                tech6_text: "Erweiterte Authentifizierung mit Multi-Faktor- und biometrischer Verifizierung",
+                roadmap_title: "Strategische Roadmap",
+                roadmap_subtitle: "Unsere Entwicklungsreise und zukünftige Pläne für die globale Expansion.",
+                roadmap1_title: "Phase 1: Konzept & Prototyp",
+                roadmap1_text: "Q3 2023 - Produktvision-Definition, Marktforschung und MVP-Entwicklung",
+                roadmap2_title: "Phase 2: Beta-Start",
+                roadmap2_text: "Q1 2024 - Geschlossene Tests mit ausgewählten Benutzern, Leistungs- und UX-Optimierung",
+                roadmap3_title: "Phase 3: Offizieller Start",
+                roadmap3_text: "Q3 2024 - Vollständige Version mit Premium-Spielbibliothek und Belohnungssystem",
+                roadmap4_title: "Phase 4: Internationale Expansion",
+                roadmap4_text: "Q1 2025 - Eintritt in strategische Märkte mit Lokalisierung in 5 Sprachen",
+                roadmap5_title: "Phase 5: Integriertes Web3",
+                roadmap5_text: "Q4 2025 - Implementierung von NFTs, eigener Kryptowährung und Blockchain-Spielen",
+                team_title: "Unser Team",
+                team_subtitle: "Experten mit über 50 Jahren kombinierter Erfahrung in der Technologie- und Unterhaltungsbranche.",
+                team1_name: "Carlos Silva",
+                team1_role: "CEO & Gründer",
+                team1_desc: "Ehemaliger Führungskraft großer Technologieunternehmen mit 15+ Jahren Erfahrung",
+                team2_name: "Amanda Torres",
+                team2_role: "CTO",
+                team2_desc: "Expertin für skalierbare Systemarchitektur und neue Technologien",
+                team3_name: "Ricardo Mendes",
+                team3_role: "Produktleiter",
+                team3_desc: "Veteran im Design von Benutzererlebnissen für Spieleplattformen",
+                team4_name: "Fernanda Oliveira",
+                team4_role: "Sicherheitschefin",
+                team4_desc: "Cybersicherheitsspezialistin mit internationalen Zertifizierungen",
+                contact_title: "Partnerschaftskontakt",
+                contact_subtitle: "Interessiert an Zusammenarbeit oder Investition in das Projekt? Kontaktieren Sie unser Team.",
+                contact_info_title: "Kontaktinformationen",
+                contact_info_desc: "Wir sind offen für strategische Partnerschaften mit Spieleentwicklern, Investoren und Technologieexperten.",
+                contact_email: "Email:",
+                contact_instagram: "Instagram:",
+                footer_terms: "Nutzungsbedingungen",
+                footer_privacy: "Datenschutzrichtlinie",
+                footer_warning: "Warnung: Inhalt 18+",
+                footer_responsible: "Verantwortungsvolles Spielen",
+                footer_copyright: "© 2025 Mago.bet – Alle Rechte vorbehalten. Mago.bet ist eine eingetragene Marke der Visionary Entertainment Group.",
+                language_selector: "Wählen Sie Ihre Sprache:"
+            },
+            zh: {
+                menu_overview: "概述",
+                menu_features: "功能",
+                menu_technology: "技术",
+                menu_roadmap: "路线图",
+                menu_team: "团队",
+                menu_contact: "联系",
+                project_title: "Mago.bet 项目详情",
+                project_subtitle: "探索Mago.bet平台背后的技术和策略，以及正在革新在线游戏市场的娱乐体验。",
+                project_button: "探索详情",
+                overview_title: "项目概述",
+                overview_text1: "Mago.bet项目源于创建一个将尖端技术与卓越用户体验结合的高级数字娱乐平台的愿景。我们的目标是在在线游戏市场提供创新替代方案。",
+                overview_text2: "经过18个多月的开发，Mago.bet由一个由技术、游戏设计和用户体验专家组成的多学科团队构建。该平台使用专有算法确保为所有用户提供公平且引人入胜的体验。",
+                overview_text3: "我们的商业模式基于与游戏开发商和高级赞助商的战略合作伙伴关系，使我们能够在准备进入国际市场的同时提供免费的高质量体验。",
+                features_title: "创新功能",
+                features_subtitle: "Mago.bet融合了先进技术，改变用户体验并在行业中设定新标准。",
+                feature1_title: "人工智能",
+                feature1_text: "AI算法通过用户行为学习，个性化游戏推荐并创建适应性挑战以保持参与度",
+                feature2_title: "高级安全",
+                feature2_text: "多层安全系统，具有端到端加密和反欺诈协议，确保用户和交易的完全保护",
+                feature3_title: "统一体验",
+                feature3_text: "跨所有设备同步进度，在桌面和移动设备之间无缝切换，确保用户体验的连续性",
+                feature4_title: "实时分析",
+                feature4_text: "分析仪表板监控用户参与度，并根据行为数据持续优化平台",
+                technology_title: "尖端技术",
+                technology_subtitle: "我们的平台采用市场上最现代和可扩展的技术栈构建。",
+                tech1_title: "React 18",
+                tech1_text: "高性能前端，具有优化渲染和可重用组件",
+                tech2_title: "Node.js 18",
+                tech2_text: "可扩展后端，采用微服务架构和负载均衡",
+                tech3_title: "MongoDB Atlas",
+                tech3_text: "全球分布式NoSQL数据库，具有自动复制功能",
+                tech4_title: "AWS Cloud",
+                tech4_text: "云基础设施，具有自动扩展和全球内容分发",
+                tech5_title: "TensorFlow.js",
+                tech5_text: "机器学习用于个性化和行为模式检测",
+                tech6_title: "OAuth 2.0",
+                tech6_text: "高级身份验证，具有多因素和生物识别验证",
+                roadmap_title: "战略路线图",
+                roadmap_subtitle: "我们的开发轨迹和未来全球扩张计划。",
+                roadmap1_title: "阶段1: 概念与原型",
+                roadmap1_text: "2023年第三季度 - 产品愿景定义、市场研究和MVP开发",
+                roadmap2_title: "阶段2: Beta发布",
+                roadmap2_text: "2024年第一季度 - 与选定用户进行封闭测试，性能和用户体验优化",
+                roadmap3_title: "阶段3: 正式发布",
+                roadmap3_text: "2024年第三季度 - 完整版本，包含高级游戏库和奖励系统",
+                roadmap4_title: "阶段4: 国际扩张",
+                roadmap4_text: "2025年第一季度 - 进入战略市场，支持5种语言本地化",
+                roadmap5_title: "阶段5: 集成Web3",
+                roadmap5_text: "2025年第四季度 - 实施NFT、自有加密货币和区块链游戏",
+                team_title: "我们的团队",
+                team_subtitle: "在技术和娱乐行业拥有超过50年综合经验的专家。",
+                team1_name: "Carlos Silva",
+                team1_role: "CEO & 创始人",
+                team1_desc: "大型科技公司前高管，拥有15年以上经验",
+                team2_name: "Amanda Torres",
+                team2_role: "CTO",
+                team2_desc: "可扩展系统架构和新兴技术专家",
+                team3_name: "Ricardo Mendes",
+                team3_role: "产品总监",
+                team3_desc: "游戏平台用户体验设计资深专家",
+                team4_name: "Fernanda Oliveira",
+                team4_role: "安全主管",
+                team4_desc: "具有国际认证的网络安全专家",
+                contact_title: "合作伙伴联系",
+                contact_subtitle: "有兴趣合作或投资该项目？请联系我们的团队。",
+                contact_info_title: "联系信息",
+                contact_info_desc: "我们欢迎与游戏开发商、投资者和技术专家建立战略合作伙伴关系。",
+                contact_email: "邮箱:",
+                contact_instagram: "Instagram:",
+                footer_terms: "使用条款",
+                footer_privacy: "隐私政策",
+                footer_warning: "警告: 18+内容",
+                footer_responsible: "负责任游戏",
+                footer_copyright: "© 2025 Mago.bet – 保留所有权利。Mago.bet是Visionary Entertainment Group的注册商标。",
+                language_selector: "选择您的语言:"
+            },
+            it: {
+                menu_overview: "Panoramica",
+                menu_features: "Caratteristiche",
+                menu_technology: "Tecnologia",
+                menu_roadmap: "Roadmap",
+                menu_team: "Team",
+                menu_contact: "Contatto",
+                project_title: "Dettagli del Progetto Mago.bet",
+                project_subtitle: "Scopri la tecnologia e la strategia dietro la piattaforma Mago.bet e l'intrattenimento che sta rivoluzionando il mercato dei giochi online.",
+                project_button: "Esplora Dettagli",
+                overview_title: "Panoramica del Progetto",
+                overview_text1: "Il progetto Mago.bet è nato dalla visione di creare una piattaforma di intrattenimento digitale premium che combina tecnologia all'avanguardia con un'esperienza utente eccezionale. Il nostro obiettivo è offrire un'alternativa innovativa nel mercato dei giochi online.",
+                overview_text2: "Dopo più di 18 mesi di sviluppo, Mago.bet è stata costruita da un team multidisciplinare di esperti in tecnologia, design di giochi ed esperienza utente. La piattaforma utilizza algoritmi proprietari per garantire un'esperienza equa e coinvolgente per tutti gli utenti.",
+                overview_text3: "Il nostro modello di business si basa su partnership strategiche con sviluppatori di giochi e sponsor premium, che ci consentono di offrire un'esperienza gratuita di alta qualità mentre prepariamo la nostra espansione nei mercati internazionali.",
+                features_title: "Caratteristiche Innovative",
+                features_subtitle: "Mago.bet incorpora tecnologie avanzate che trasformano l'esperienza utente e definiscono nuovi standard nel settore.",
+                feature1_title: "Intelligenza Artificiale",
+                feature1_text: "Algoritmi di IA che imparano dal comportamento dell'utente per personalizzare le raccomandazioni di giochi e creare sfide adattive che mantengono l'engagement.",
+                feature2_title: "Sicurezza Avanzata",
+                feature2_text: "Sistema di sicurezza multilivello con crittografia end-to-end e protocolli antifrode che garantiscono protezione totale per utenti e transazioni.",
+                feature3_title: "Esperienza Unificata",
+                feature3_text: "Progressi sincronizzati su tutti i dispositivi con transizioni fluide tra desktop e mobile, garantendo continuità nell'esperienza utente.",
+                feature4_title: "Analytics in Tempo Reale",
+                feature4_text: "Dashboard analytics che monitora l'engagement degli utenti e ottimizza continuamente la piattaforma basandosi sui dati comportamentali.",
+                technology_title: "Tecnologia All'Avanguardia",
+                technology_subtitle: "La nostra piattaforma è costruita con lo stack tecnologico più moderno e scalabile sul mercato.",
+                tech1_title: "React 18",
+                tech1_text: "Frontend ad alte prestazioni con rendering ottimizzato e componenti riutilizzabili",
+                tech2_title: "Node.js 18",
+                tech2_text: "Backend scalabile con architettura a microservizi e bilanciamento del carico",
+                tech3_title: "MongoDB Atlas",
+                tech3_text: "Database NoSQL distribuito globalmente con replica automatica",
+                tech4_title: "AWS Cloud",
+                tech4_text: "Infrastruttura cloud con auto-scaling e distribuzione globale dei contenuti",
+                tech5_title: "TensorFlow.js",
+                tech5_text: "Machine learning per personalizzazione e rilevamento di pattern comportamentali",
+                tech6_title: "OAuth 2.0",
+                tech6_text: "Autenticazione avanzata con verifica multi-fattore e biometrica",
+                roadmap_title: "Roadmap Strategica",
+                roadmap_subtitle: "Il nostro percorso di sviluppo e piani futuri per l'espansione globale.",
+                roadmap1_title: "Fase 1: Concetto e Prototipo",
+                roadmap1_text: "Q3 2023 - Definizione della visione del prodotto, ricerca di mercato e sviluppo MVP",
+                roadmap2_title: "Fase 2: Lancio Beta",
+                roadmap2_text: "Q1 2024 - Test chiusi con utenti selezionati, ottimizzazione prestazioni e UX",
+                roadmap3_title: "Fase 3: Lancio Ufficiale",
+                roadmap3_text: "Q3 2024 - Versione completa con libreria giochi premium e sistema di ricompense",
+                roadmap4_title: "Fase 4: Espansione Internazionale",
+                roadmap4_text: "Q1 2025 - Ingresso in mercati strategici con localizzazione in 5 lingue",
+                roadmap5_title: "Fase 5: Web3 Integrato",
+                roadmap5_text: "Q4 2025 - Implementazione di NFT, criptovaluta proprietaria e giochi blockchain",
+                team_title: "Il Nostro Team",
+                team_subtitle: "Esperti con oltre 50 anni di esperienza combinata nel settore tecnologico e dell'intrattenimento.",
+                team1_name: "Carlos Silva",
+                team1_role: "CEO & Fondatore",
+                team1_desc: "Ex dirigente di grandi aziende tecnologiche con 15+ anni di esperienza",
+                team2_name: "Amanda Torres",
+                team2_role: "CTO",
+                team2_desc: "Esperta in architetture di sistemi scalabili e tecnologie emergenti",
+                team3_name: "Ricardo Mendes",
+                team3_role: "Direttore Prodotto",
+                team3_desc: "Veterano nella progettazione di esperienze utente per piattaforme di gioco",
+                team4_name: "Fernanda Oliveira",
+                team4_role: "Responsabile Sicurezza",
+                team4_desc: "Specialista in cybersecurity con certificazioni internazionali",
+                contact_title: "Contatto Partnership",
+                contact_subtitle: "Interessato a collaborare o investire nel progetto? Contatta il nostro team.",
+                contact_info_title: "Informazioni di Contatto",
+                contact_info_desc: "Siamo aperti a partnership strategiche con sviluppatori di giochi, investitori ed esperti tecnologici.",
+                contact_email: "Email:",
+                contact_instagram: "Instagram:",
+                footer_terms: "Termini di Utilizzo",
+                footer_privacy: "Privacy Policy",
+                footer_warning: "Avviso: Contenuto 18+",
+                footer_responsible: "Gioco Responsabile",
+                footer_copyright: "© 2025 Mago.bet – Tutti i diritti riservati. Mago.bet è un marchio registrato di Visionary Entertainment Group.",
+                language_selector: "Seleziona la tua lingua:"
+            }
+        };
+
+        // Função para mudar o idioma
+        function changeLanguage(lang) {
+            // Salvar preferência de idioma
+            localStorage.setItem('language', lang);
+            
+            // Atualizar todos os elementos com atributo data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Atualizar o título da página
+            document.title = "Mago.bet | " + translations[lang].menu_overview;
+        }
+
+        // Inicializar com idioma salvo ou português
+        const savedLang = localStorage.getItem('language') || 'pt';
+        changeLanguage(savedLang);
+
+        // Menu Hamburger Functionality
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = "15px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.98)";
+            } else {
+                navbar.style.padding = "20px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.95)";
+            }
+            
+            const backToTop = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu');
+
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation(); 
+            menu.classList.toggle('active');
+            hamburger.innerHTML = menu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = ''; 
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const isMenuClick = menu.contains(e.target);
+            const isHamburgerClick = hamburger.contains(e.target);
+            
+            if (!isMenuClick && !isHamburgerClick && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = ''; 
+            }
+        });
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.section, .feature-item, .tech-item, .timeline-content, .team-member, .contact-info, .contact-form').forEach(el => {
+            el.classList.add('hidden');
+            observer.observe(el);
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = ''; 
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Back to top button
+        document.getElementById('back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Language Selection
+        document.querySelectorAll('.flags a').forEach(flag => {
+            flag.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+    </script>
+</body>
+</html>

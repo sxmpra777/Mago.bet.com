@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        script-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self';
+        object-src 'none';
+        frame-ancestors 'none';
+      ">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso - Mago.bet</title>
+      <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-green: #0d1f0d;
+            --green: #1a471a;
+            --light-green: #2d6d2d;
+            --bright-green: #00cc66;
+            --black: #000000;
+            --white: #ffffff;
+            --light-gray: #f0f0f0;
+            --dark-gray: #222222;
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+            padding-top: 100px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--bright-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 31, 13, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--bright-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            animation: pulse 2s infinite;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--bright-green);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+
+        .terms-banner {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/ma.jpg') center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--bright-green);
+        }
+
+        .terms-banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .terms-banner p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--light-gray);
+        }
+
+
+        .terms-content {
+            background-color: rgba(13, 31, 13, 0.7);
+            border-radius: 15px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .terms-section {
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(0, 204, 102, 0.2);
+        }
+
+        .terms-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .terms-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bright-green);
+        }
+
+        .terms-section h2 i {
+            font-size: 1.8rem;
+            color: var(--bright-green);
+        }
+
+        .terms-section p, .terms-section li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #d0d0d0;
+        }
+
+        .terms-section ul {
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        .terms-section li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .terms-section li:before {
+            content: "•";
+            color: var(--bright-green);
+            font-size: 1.5rem;
+            position: absolute;
+            left: -20px;
+            top: -5px;
+        }
+
+        .highlight {
+            background: rgba(0, 204, 102, 0.1);
+            border-left: 4px solid var(--bright-green);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+
+        .update-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(45, 109, 45, 0.3);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border: 1px solid var(--light-green);
+        }
+
+        .update-info i {
+            color: var(--bright-green);
+            font-size: 1.5rem;
+        }
+
+
+        footer {
+            background-color: var(--black);
+            padding: 80px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--bright-green);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--dark-green);
+            color: var(--bright-green);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bright-green);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--bright-green);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-links .warning {
+            color: #ff6b6b;
+        }
+
+        footer p {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        @media (max-width: 992px) {
+            .terms-content {
+                padding: 40px;
+            }
+            
+            .terms-banner h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .terms-content {
+                padding: 30px 20px;
+            }
+            
+            .terms-banner {
+                padding: 80px 0;
+            }
+            
+            .terms-banner h1 {
+                font-size: 2.3rem;
+            }
+            
+            .terms-section h2 {
+                font-size: 1.7rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding-top: 80px;
+                font-size: 16px;
+            }
+            
+            .terms-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .terms-section h2 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .terms-section h2 i {
+                font-size: 1.5rem;
+            }
+            
+            .update-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </a>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar ao Site
+            </a>
+        </div>
+    </nav>
+    <section class="terms-banner">
+        <div class="container">
+            <h1>Termos de Uso</h1>
+            <p>Conheça as condições que regem o uso da plataforma Mago.bet e nossa relação com você</p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="terms-content">
+            <div class="terms-section">
+                <h2><i class="fas fa-scroll"></i> Introdução</h2>
+                <p>Bem-vindo aos Termos de Uso da Mago.bet. Estes termos constituem um acordo legal entre você e a Visionary Entertainment Group ("nós", "nosso" ou "a empresa"), proprietária da plataforma Mago.bet.</p>
+                <p>Ao acessar ou utilizar qualquer parte do site, aplicativo ou serviços da Mago.bet, você concorda em ficar vinculado por estes Termos de Uso. Se não concordar com todos os termos, não deverá acessar ou utilizar nossos serviços.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-check-circle"></i> Aceitação dos Termos</h2>
+                <p>Ao utilizar a plataforma Mago.bet, você declara e garante que:</p>
+                <ul>
+                    <li>Possui pelo menos 18 anos de idade ou a idade legal para jogos em sua jurisdição</li>
+                    <li>Está utilizando a plataforma por vontade própria e por sua conta e risco</li>
+                    <li>Está em plena capacidade mental para celebrar este acordo</li>
+                    <li>Não está violando nenhuma lei ou regulamento aplicável ao utilizar nossos serviços</li>
+                    <li>Todo o dinheiro utilizado em nossa plataforma é de origem lícita</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-user-shield"></i> Conta do Usuário</h2>
+                <p>Para acessar determinadas funcionalidades da plataforma, será necessário criar uma conta.</p>
+                
+                <div class="highlight">
+                    <p><strong>Você concorda em:</strong></p>
+                    <ul>
+                        <li>Fornecer informações verdadeiras, precisas e completas durante o registro</li>
+                        <li>Manter e atualizar prontamente suas informações de registro</li>
+                        <li>Manter a confidencialidade de sua senha e restringir o acesso à sua conta</li>
+                        <li>Ser responsável por todas as atividades que ocorram em sua conta</li>
+                        <li>Notificar-nos imediatamente sobre qualquer uso não autorizado de sua conta</li>
+                    </ul>
+                </div>
+                
+                <p>Reservamo-nos o direito de recusar o registro, suspender ou encerrar contas a nosso exclusivo critério.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-ban"></i> Conduta Proibida</h2>
+                <p>Você concorda em NÃO:</p>
+                <ul>
+                    <li>Utilizar a plataforma para qualquer atividade ilegal ou não autorizada</li>
+                    <li>Tentar acessar áreas restritas da plataforma sem autorização</li>
+                    <li>Utilizar bots, scripts ou outros meios automatizados para acessar a plataforma</li>
+                    <li>Realizar engenharia reversa, descompilar ou desmontar qualquer parte da plataforma</li>
+                    <li>Interferir na segurança ou integridade da plataforma</li>
+                    <li>Utilizar a plataforma para enviar spam, vírus ou conteúdo malicioso</li>
+                    <li>Realizar atividades de lavagem de dinheiro ou financiamento ao terrorismo</li>
+                    <li>Participar de qualquer forma de fraude, colusão ou manipulação de resultados</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-coins"></i> Transações Financeiras</h2>
+                <p>Todas as transações na plataforma estão sujeitas aos seguintes termos:</p>
+                <ul>
+                    <li>Depósitos devem ser realizados apenas através dos métodos de pagamento disponíveis</li>
+                    <li>Retiradas estão sujeitas a procedimentos de verificação de segurança</li>
+                    <li>Taxas de transação podem ser aplicadas conforme o método de pagamento escolhido</li>
+                    <li>Reservamo-nos o direito de recusar qualquer transação a nosso critério</li>
+                    <li>Saldo não utilizado permanecerá disponível em sua conta indefinidamente</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Limites de Aposta:</strong> Para promover o jogo responsável, estabelecemos limites mínimos e máximos para apostas. Esses limites podem ser ajustados pelo usuário em sua conta, sujeitos aos limites máximos estabelecidos pela plataforma.</p>
+                </div>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-copyright"></i> Propriedade Intelectual</h2>
+                <p>Todos os direitos de propriedade intelectual relacionados à plataforma Mago.bet, incluindo mas não limitado a software, design, textos, gráficos, logotipos, e conteúdo, são propriedade exclusiva da Visionary Entertainment Group ou de seus licenciadores.</p>
+                <p>É concedida a você uma licença limitada, não exclusiva, intransferível e revogável para acessar e utilizar a plataforma para seu uso pessoal e não comercial, estritamente de acordo com estes Termos de Uso.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-gavel"></i> Limitação de Responsabilidade</h2>
+                <p>A plataforma Mago.bet é fornecida "no estado em que se encontra" e "conforme disponível". Não garantimos que:</p>
+                <ul>
+                    <li>A plataforma atenderá a todos os seus requisitos</li>
+                    <li>A operação da plataforma será ininterrupta, segura ou livre de erros</li>
+                    <li>Os resultados obtidos pelo uso da plataforma serão precisos ou confiáveis</li>
+                </ul>
+                
+                <p>Em nenhuma circunstância seremos responsáveis por quaisquer danos diretos, indiretos, incidentais, especiais ou consequenciais decorrentes do uso ou incapacidade de usar nossos serviços.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-balance-scale"></i> Lei Aplicável</h2>
+                <p>Estes Termos de Uso serão regidos e interpretados de acordo com as leis da Curaçao, sem consideração a seus princípios de conflito de leis.</p>
+                <p>Qualquer disputa decorrente ou relacionada a estes Termos será submetida à jurisdição exclusiva dos tribunais da Curaçao.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-exchange-alt"></i> Alterações nos Termos</h2>
+                <p>Reservamo-nos o direito, a nosso exclusivo critério, de modificar ou substituir estes Termos a qualquer momento.</p>
+                <p>Se uma revisão for material, faremos esforços razoáveis para fornecer aviso prévio de pelo menos 30 dias antes de quaisquer novos termos entrarem em vigor. O que constitui uma mudança material será determinado a nosso exclusivo critério.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-headset"></i> Contato</h2>
+                <p>Se tiver quaisquer dúvidas sobre estes Termos de Uso, entre em contato conosco através dos seguintes canais:</p>
+                <ul>
+                    <li><strong>E-mail:</strong> suporte@mago.bet</li>
+                    <li><strong>Chat ao vivo:</strong> Disponível na plataforma durante horário comercial</li>
+
+            </div>
+
+            <div class="update-info">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <p><strong>Última atualização:</strong> 13 de Junho de 2025</p>
+                    <p>Estes Termos de Uso substituem todos os acordos anteriores entre você e a Mago.bet em relação à plataforma.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mago.bet777?igsh=c2Z4aGNzdzRieXYz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1HQ9xi4Md6/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/calos-da-silva-mendes-85149536b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="privacidade.html">Política de Privacidade</a>
+                    <a href="Responsavel.html">Jogo Responsável</a>
+                    <a href="Aviso18.html" class="warning">Aviso: Conteúdo 18+</a>
+                    
+                </div>
+                <p>© 2025 Mago.bet – Todos os direitos reservados. Mago.bet é uma marca registrada da Visionary Entertainment Group.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = "15px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.98)";
+            } else {
+                navbar.style.padding = "20px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.95)";
+            }
+        });
+
+
+        document.querySelectorAll('.terms-section h2').forEach(header => {
+            header.addEventListener('click', function() {
+                this.scrollIntoView({behavior: 'smooth', block: 'start'});
+            });
+        });
+    </script>
+</body>
+</html>

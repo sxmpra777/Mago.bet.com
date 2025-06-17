@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        script-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self';
+        object-src 'none';
+        frame-ancestors 'none';
+      ">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Responsável - Mago.bet</title>
+      <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-green: #0d1f0d;
+            --green: #1a471a;
+            --light-green: #2d6d2d;
+            --bright-green: #00cc66;
+            --black: #000000;
+            --white: #ffffff;
+            --light-gray: #f0f0f0;
+            --dark-gray: #222222;
+            --gold: #d4af37;
+            --blue: #0088cc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--bright-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        /* Menu de navegação */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 31, 13, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--bright-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            animation: pulse 2s infinite;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--bright-green);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+
+        .responsible-banner {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/re.jpg') center/cover no-repeat;
+            padding: 120px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--blue);
+            margin-top: 80px;
+        }
+
+        .responsible-banner .content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .responsible-banner h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .responsible-banner p {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: var(--light-gray);
+        }
+
+        .balance-icon {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .balance-icon .scale {
+            position: relative;
+            width: 300px;
+            height: 150px;
+        }
+
+        .balance-icon .bar {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--bright-green);
+            transform: translateY(-50%);
+        }
+
+        .balance-icon .stand {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 80px;
+            background-color: var(--bright-green);
+            transform: translate(-50%, -50%);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .balance-icon .left-pan, .balance-icon .right-pan {
+            position: absolute;
+            top: 50%;
+            width: 80px;
+            height: 10px;
+            background-color: var(--blue);
+            border-radius: 5px;
+        }
+
+        .balance-icon .left-pan {
+            left: 20px;
+            transform: translateY(-50%);
+        }
+
+        .balance-icon .right-pan {
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .balance-icon .left-weight, .balance-icon .right-weight {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .balance-icon .left-weight {
+            top: 20px;
+            left: 30px;
+            animation-delay: 0.5s;
+        }
+
+        .balance-icon .right-weight {
+            bottom: 20px;
+            right: 30px;
+        }
+
+
+        .responsible-content {
+            background-color: rgba(13, 31, 13, 0.7);
+            border-radius: 15px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .responsible-section {
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(0, 204, 102, 0.2);
+        }
+
+        .responsible-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .responsible-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bright-green);
+        }
+
+        .responsible-section h2 i {
+            font-size: 1.8rem;
+            color: var(--bright-green);
+        }
+
+        .responsible-section p, .responsible-section li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #d0d0d0;
+        }
+
+        .responsible-section ul {
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        .responsible-section li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .responsible-section li:before {
+            content: "•";
+            color: var(--bright-green);
+            font-size: 1.5rem;
+            position: absolute;
+            left: -20px;
+            top: -5px;
+        }
+
+        .info-box {
+            background: rgba(0, 136, 204, 0.1);
+            border-left: 4px solid var(--blue);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+
+        .info-box h3 {
+            color: var(--blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: rgba(45, 109, 45, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid var(--light-green);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: var(--bright-green);
+        }
+
+        .card .icon {
+            font-size: 60px;
+            color: var(--blue);
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            color: var(--bright-green);
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .tool-card {
+            background: rgba(0, 136, 204, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid var(--blue);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: scale(1.05);
+            background: rgba(0, 136, 204, 0.25);
+        }
+
+        .tool-card h3 {
+            color: var(--blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tool-card .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background-color: var(--blue);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card .btn:hover {
+            background-color: var(--bright-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .support-card {
+            background: rgba(13, 31, 13, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid var(--light-green);
+            text-align: center;
+        }
+
+        .support-card h3 {
+            color: var(--blue);
+            margin-bottom: 20px;
+        }
+
+        .support-card p {
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+
+        .support-card .contact {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bright-green);
+            margin: 15px 0;
+        }
+
+        .self-test {
+            background: rgba(0, 136, 204, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 2px solid var(--blue);
+            text-align: center;
+        }
+
+        .self-test h2 {
+            color: var(--blue);
+            margin-bottom: 30px;
+        }
+
+        .self-test p {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+
+        .self-test .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--blue);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .self-test .btn:hover {
+            background-color: var(--bright-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.4);
+        }
+
+
+        footer {
+            background-color: var(--black);
+            padding: 80px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--bright-green);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--dark-green);
+            color: var(--bright-green);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bright-green);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--bright-green);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-links .warning {
+            color: #ff6b6b;
+        }
+
+        footer p {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+
+        @media (max-width: 992px) {
+            .responsible-content {
+                padding: 40px;
+            }
+            
+            .responsible-banner h1 {
+                font-size: 3rem;
+            }
+            
+            .responsible-banner p {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .responsible-content {
+                padding: 30px 20px;
+            }
+            
+            .responsible-banner {
+                padding: 80px 0;
+            }
+            
+            .responsible-banner h1 {
+                font-size: 2.5rem;
+            }
+            
+            .responsible-banner p {
+                font-size: 1.3rem;
+            }
+            
+            .responsible-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .responsible-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .responsible-banner p {
+                font-size: 1.1rem;
+            }
+            
+            .responsible-section h2 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .responsible-section h2 i {
+                font-size: 1.5rem;
+            }
+            
+            .self-test {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </a>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar ao Site
+            </a>
+        </div>
+    </nav>
+    <section class="responsible-banner">
+        <div class="container">
+            <div class="content">
+                <h1>JOGO RESPONSÁVEL</h1>
+                <p>Diversão com equilíbrio: sua segurança e bem-estar são nossa prioridade</p>
+                
+                <div class="balance-icon">
+                    <div class="scale">
+                        <div class="bar"></div>
+                        <div class="stand"></div>
+                        <div class="left-pan"></div>
+                        <div class="right-pan"></div>
+                        <div class="left-weight"><i class="fas fa-heart"></i></div>
+                        <div class="right-weight"><i class="fas fa-gamepad"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="responsible-content">
+            <div class="responsible-section">
+                <h2><i class="fas fa-balance-scale"></i> O que é Jogo Responsável?</h2>
+                <p>Jogo responsável significa manter o controle sobre sua atividade de jogo, garantindo que ela permaneça uma forma de entretenimento saudável e não cause danos a você ou aos outros.</p>
+                
+                <div class="info-box">
+                    <h3><i class="fas fa-lightbulb"></i> Princípios do Jogo Responsável</h3>
+                    <ul>
+                        <li>O jogo deve ser uma forma de diversão, não uma fonte de renda</li>
+                        <li>Estabeleça limites de tempo e dinheiro antes de começar</li>
+                        <li>Nunca tente recuperar perdas com mais apostas</li>
+                        <li>Não jogue quando estiver sob efeito de álcool ou emoções fortes</li>
+                        <li>Equilibre o jogo com outras atividades de lazer</li>
+                    </ul>
+                </div>
+                
+                <p>Na Mago.bet, promovemos ativamente a prática do jogo responsável e oferecemos ferramentas para ajudar você a manter o controle de sua atividade.</p>
+            </div>
+
+            <div class="responsible-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Sinais de Alerta</h2>
+                <p>Reconhecer os sinais de problemas com o jogo é o primeiro passo para buscar ajuda:</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <h3>Perda de Controle do Tempo</h3>
+                        <p>Passar mais tempo jogando do que planejou, frequentemente negligenciando responsabilidades</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3>Problemas Financeiros</h3>
+                        <p>Gastar mais do que pode perder, pedir empréstimos ou vender pertences para jogar</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-sad-tear"></i></div>
+                        <h3>Impacto Emocional</h3>
+                        <p>Sentir ansiedade, depressão ou irritabilidade quando não está jogando</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-people-arrows"></i></div>
+                        <h3>Problemas Relacionais</h3>
+                        <p>Mentir para familiares sobre o jogo ou ter conflitos frequentes sobre o assunto</p>
+                    </div>
+                </div>
+                
+                <div class="self-test">
+                    <h2><i class="fas fa-clipboard-list"></i> Autoavaliação</h2>
+                    <p>Responda honestamente: se você respondeu "sim" a 3 ou mais destas perguntas, pode estar desenvolvendo um problema com jogos</p>
+                    <a href="#" class="btn">Fazer Teste Completo</a>
+                </div>
+            </div>
+
+            <div class="responsible-section">
+                <h2><i class="fas fa-tools"></i> Ferramentas de Controle</h2>
+                <p>A Mago.bet oferece diversas ferramentas para ajudar você a manter o controle:</p>
+                
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><i class="fas fa-hourglass-half"></i> Limites de Depósito</h3>
+                        <p>Defina limites diários, semanais ou mensais para quanto pode depositar em sua conta</p>
+                        <a href="#" class="btn">Definir Limites</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h3><i class="fas fa-stopwatch"></i> Limites de Tempo</h3>
+                        <p>Controle quanto tempo passa jogando com alertas e desconexões automáticas</p>
+                        <a href="#" class="btn">Configurar Tempo</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h3><i class="fas fa-pause-circle"></i> Autoexclusão Temporária</h3>
+                        <p>Dê um tempo do jogo com períodos de autoexclusão de 24h, 7 dias ou 1 mês</p>
+                        <a href="#" class="btn">Ativar Pausa</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h3><i class="fas fa-ban"></i> Autoexclusão Permanente</h3>
+                        <p>Se precisar, você pode solicitar o fechamento permanente de sua conta</p>
+                        <a href="#" class="btn">Solicitar Exclusão</a>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h3><i class="fas fa-lock"></i> Bloqueio de Conta</h3>
+                    <p>Se você acredita que está perdendo o controle, pode solicitar o bloqueio imediato de sua conta por um período determinado. Durante este tempo, não será possível acessar sua conta ou fazer novos depósitos.</p>
+                </div>
+            </div>
+
+            <div class="responsible-section">
+                <h2><i class="fas fa-hands-helping"></i> Apoio e Recursos</h2>
+                <p>Se você ou alguém que conhece está lutando contra o vício em jogos, estas organizações podem ajudar:</p>
+                
+                <div class="support-grid">
+                    <div class="support-card">
+                        <h3><i class="fas fa-hands"></i> Jogadores Anônimos</h3>
+                        <p>Grupo de apoio mútuo para pessoas que sofrem com o vício em jogos</p>
+                        <div class="contact">(11) 3675-7777</div>
+                        <p>Reuniões presenciais e online em todo o Brasil</p>
+                    </div>
+                    
+                    <div class="support-card">
+                        <h3><i class="fas fa-comments"></i> Amor-Exigente</h3>
+                        <p>Apoio para familiares e amigos de pessoas com problemas de vício</p>
+                        <div class="contact">141 (ligação gratuita)</div>
+                        <p>Atendimento 24 horas por dia, 7 dias por semana</p>
+                    </div>
+                    
+                    <div class="support-card">
+                        <h3><i class="fas fa-heart"></i> CVV - Centro de Valorização da Vida</h3>
+                        <p>Apoio emocional e prevenção do suicídio</p>
+                        <div class="contact">188 (ligação gratuita)</div>
+                        <p>Atendimento 24 horas por chat, telefone ou e-mail</p>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h3><i class="fas fa-book"></i> Materiais Educativos</h3>
+                    <p>Disponibilizamos guias, vídeos e artigos sobre jogo responsável. <a href="#" style="color: var(--bright-green);">Acesse nossa biblioteca</a> para aprender mais sobre como manter uma relação saudável com os jogos.</p>
+                </div>
+            </div>
+
+            <div class="responsible-section">
+                <h2><i class="fas fa-child"></i> Proteção de Menores</h2>
+                <p>A Mago.bet é uma plataforma exclusiva para maiores de 18 anos. Implementamos rigorosos sistemas de verificação de idade para garantir que menores não tenham acesso aos nossos serviços.</p>
+                
+                <div class="info-box">
+                    <h3><i class="fas fa-shield-alt"></i> Como Proteger os Menores</h3>
+                    <ul>
+                        <li>Mantenha seus dados de login em sigilo</li>
+                        <li>Utilize softwares de controle parental em seus dispositivos</li>
+                        <li>Eduque crianças e adolescentes sobre os riscos dos jogos de azar</li>
+                        <li>Relate imediatamente qualquer suspeita de acesso de menores</li>
+                    </ul>
+                </div>
+                
+                <p>Se você é responsável por um menor que acessou nossa plataforma, entre em contato imediatamente com nosso suporte para bloqueio da conta.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mago.bet777?igsh=c2Z4aGNzdzRieXYz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1HQ9xi4Md6/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/calos-da-silva-mendes-85149536b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="Termos.html">Termos de Uso</a>
+                    <a href="Privacidade.html">Política de Privacidade</a>
+                    <a href="Aviso18.html" class="warning">Aviso: Conteúdo 18+</a>
+                </div>
+                <p>© 2025 Mago.bet – Todos os direitos reservados. Mago.bet é uma marca registrada da Visionary Entertainment Group.</p>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = "15px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.98)";
+            } else {
+                navbar.style.padding = "20px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.95)";
+            }
+        });
+
+
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.btn').style.transform = 'translateY(-3px)';
+                this.querySelector('.btn').style.boxShadow = '0 5px 15px rgba(0, 136, 204, 0.4)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.btn').style.transform = 'translateY(0)';
+                this.querySelector('.btn').style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

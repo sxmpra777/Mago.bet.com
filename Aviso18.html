@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        script-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self';
+        object-src 'none';
+        frame-ancestors 'none';
+      ">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso: Conteúdo 18+ - Mago.bet</title>
+      <link rel="icon" href="img/favicon18.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-green: #0d1f0d;
+            --green: #1a471a;
+            --light-green: #2d6d2d;
+            --bright-green: #00cc66;
+            --black: #000000;
+            --white: #ffffff;
+            --light-gray: #f0f0f0;
+            --dark-gray: #222222;
+            --gold: #d4af37;
+            --red: #cc0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--bright-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        /* Menu de navegação */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 31, 13, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--bright-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            animation: pulse 2s infinite;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--bright-green);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Banner de Aviso */
+        .warning-banner {
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('img/18.jpg') center/cover no-repeat;
+            padding: 120px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--red);
+            margin-top: 80px;
+        }
+
+        .warning-banner .content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .warning-banner h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: var(--red);
+            text-shadow: 0 0 20px rgba(204, 0, 0, 0.5);
+            animation: pulseRed 2s infinite;
+        }
+
+        .warning-banner p {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: var(--light-gray);
+        }
+
+        .age-badge {
+            background-color: var(--red);
+            color: white;
+            font-size: 6rem;
+            font-weight: 800;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+            border: 10px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 40px rgba(204, 0, 0, 0.5);
+            animation: pulseRed 3s infinite;
+        }
+
+        /* Conteúdo de Aviso */
+        .warning-content {
+            background-color: rgba(13, 31, 13, 0.7);
+            border-radius: 15px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .warning-section {
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(0, 204, 102, 0.2);
+        }
+
+        .warning-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .warning-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bright-green);
+        }
+
+        .warning-section h2 i {
+            font-size: 1.8rem;
+            color: var(--bright-green);
+        }
+
+        .warning-section p, .warning-section li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #d0d0d0;
+        }
+
+        .warning-section ul {
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        .warning-section li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .warning-section li:before {
+            content: "•";
+            color: var(--bright-green);
+            font-size: 1.5rem;
+            position: absolute;
+            left: -20px;
+            top: -5px;
+        }
+
+        .warning-box {
+            background: rgba(204, 0, 0, 0.1);
+            border-left: 4px solid var(--red);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+
+        .warning-box h3 {
+            color: var(--red);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: rgba(45, 109, 45, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid var(--light-green);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: var(--bright-green);
+        }
+
+        .card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--bright-green);
+        }
+
+        .card h3 i {
+            font-size: 1.8rem;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 45px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            border: 2px solid var(--bright-green);
+            color: var(--bright-green);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 204, 102, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--red);
+            color: var(--red);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--red);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(204, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            padding: 80px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--bright-green);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--dark-green);
+            color: var(--bright-green);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bright-green);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--bright-green);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-links .warning {
+            color: var(--red);
+        }
+
+        footer p {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulseRed {
+            0% {
+                box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(204, 0, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(204, 0, 0, 0);
+            }
+        }
+
+
+        @media (max-width: 992px) {
+            .warning-content {
+                padding: 40px;
+            }
+            
+            .warning-banner h1 {
+                font-size: 3rem;
+            }
+            
+            .warning-banner p {
+                font-size: 1.5rem;
+            }
+            
+            .age-badge {
+                width: 150px;
+                height: 150px;
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .warning-content {
+                padding: 30px 20px;
+            }
+            
+            .warning-banner {
+                padding: 80px 0;
+            }
+            
+            .warning-banner h1 {
+                font-size: 2.5rem;
+            }
+            
+            .warning-banner p {
+                font-size: 1.3rem;
+            }
+            
+            .warning-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .warning-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .warning-banner p {
+                font-size: 1.1rem;
+            }
+            
+            .warning-section h2 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .warning-section h2 i {
+                font-size: 1.5rem;
+            }
+            
+            .age-badge {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </a>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar ao Site
+            </a>
+        </div>
+    </nav>
+    <section class="warning-banner">
+        <div class="container">
+            <div class="content">
+                <div class="age-badge">18+</div>
+                <h1>AVISO: CONTEÚDO PARA MAIORES DE 18 ANOS</h1>
+                <p>A plataforma Mago.bet contém material classificado como adulto e é estritamente proibida para menores de idade</p>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="warning-content">
+            <div class="warning-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Restrição de Idade</h2>
+                <p>A Mago.bet é uma plataforma de entretenimento digital voltada exclusivamente para maiores de 18 anos. O acesso é estritamente proibido a menores de idade em conformidade com as leis brasileiras e internacionais que regulamentam jogos de azar online.</p>
+                
+                <div class="warning-box">
+                    <h3><i class="fas fa-ban"></i> Proibição Expressa</h3>
+                    <p>É ilegal e expressamente proibido que menores de 18 anos acessem, utilizem ou se registrem em qualquer serviço da plataforma Mago.bet. Violar esta política constitui infração legal e sujeita o responsável a penalidades civis e criminais.</p>
+                </div>
+                
+                <p>Implementamos rigorosos sistemas de verificação de idade que podem exigir documentação comprobatória. Reservamo-nos o direito de suspender contas e reter fundos quando houver suspeita de violação desta política.</p>
+            </div>
+
+            <div class="warning-section">
+                <h2><i class="fas fa-shield-alt"></i> Verificação de Idade</h2>
+                <p>Para garantir o cumprimento da legislação e proteger menores, implementamos um sistema robusto de verificação de idade:</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-id-card"></i> Documentação</h3>
+                        <p>Exigimos cópia digitalizada de documento oficial com foto (RG, CNH ou Passaporte) para verificação de idade durante o registro.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><i class="fas fa-camera"></i> Reconhecimento Facial</h3>
+                        <p>Utilizamos tecnologia de reconhecimento facial para comparar sua selfie ao documento apresentado, garantindo a autenticidade.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><i class="fas fa-sync-alt"></i> Verificação Contínua</h3>
+                        <p>Realizamos verificações periódicas mesmo após o registro inicial para garantir conformidade contínua com nossa política de idade.</p>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <h3><i class="fas fa-user-slash"></i> Consequências de Violação</h3>
+                    <p>Contas identificadas como pertencentes a menores serão imediatamente suspensas. Todos os fundos serão confiscados e doados para instituições de caridade que combatem o vício em jogos entre jovens. O responsável legal poderá ser notificado e as autoridades competentes informadas.</p>
+                </div>
+            </div>
+
+            <div class="warning-section">
+                <h2><i class="fas fa-balance-scale"></i> Responsabilidades</h2>
+                <p>O acesso à plataforma Mago.bet requer responsabilidade por parte do usuário:</p>
+                
+                <div class="warning-box">
+                    <h3><i class="fas fa-user-check"></i> Responsabilidade do Usuário</h3>
+                    <p>Ao acessar nosso site, você declara e garante que:</p>
+                    <ul>
+                        <li>Possui 18 anos ou mais e tem capacidade legal para celebrar este acordo</li>
+                        <li>Está utilizando a plataforma em conformidade com as leis de sua jurisdição</li>
+                        <li>Não está fornecendo acesso a menores de idade</li>
+                        <li>Compreende os riscos associados aos jogos de azar online</li>
+                    </ul>
+                </div>
+                
+                <p>É sua responsabilidade garantir que menores não tenham acesso aos seus dispositivos ou credenciais de acesso. Recomendamos o uso de sistemas de controle parental e a proteção de dispositivos com senhas.</p>
+            </div>
+
+            <div class="warning-section">
+                <h2><i class="fas fa-hands-helping"></i> Jogo Responsável</h2>
+                <p>A Mago.bet promove práticas de jogo responsável e oferece ferramentas para ajudar no controle:</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-hourglass-half"></i> Limites de Jogo</h3>
+                        <p>Defina limites diários, semanais ou mensais para depósitos, perdas e tempo de jogo diretamente em sua conta.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><i class="fas fa-pause-circle"></i> Autoexclusão</h3>
+                        <p>Solicite períodos de autoexclusão temporária (24h, 7 dias, 1 mês) ou permanente quando necessário.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><i class="fas fa-ban"></i> Autoexclusão</h3>
+                        <p>Bloqueie seu acesso à plataforma por períodos determinados ou permanentemente se sentir que está perdendo o controle.</p>
+                    </div>
+                </div>
+                
+                <p>Reconhecemos que o jogo pode ser viciante. Se você ou alguém que conhece está lutando contra o vício em jogos, recomendamos buscar ajuda profissional:</p>
+                <ul>
+                    <li><strong>Jogadores Anônimos Brasil:</strong> (11) 3675-7777</li>
+                    <li><strong>Amor-Exigente:</strong> 141 (ligação gratuita)</li>
+                    <li><strong>CVV - Centro de Valorização da Vida:</strong> 188 (ligação gratuita)</li>
+                </ul>
+            </div>
+
+            <div class="buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-check-circle"></i> Sou maior de 18 anos
+                </a>
+                <a href="https://www.google.com" class="btn btn-secondary">
+                    <i class="fas fa-times-circle"></i> Sou menor de idade / Sair do site
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mago.bet777?igsh=c2Z4aGNzdzRieXYz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1HQ9xi4Md6/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/calos-da-silva-mendes-85149536b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="Termos.html">Termos de Uso</a>
+                    <a href="Privacidade.html">Política de Privacidade</a>
+                    <a href="Responsavel.html">Jogo Responsável</a>
+
+                </div>
+                <p>© 2025 Mago.bet – Todos os direitos reservados. Mago.bet é uma marca registrada da Visionary Entertainment Group.</p>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = "15px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.98)";
+            } else {
+                navbar.style.padding = "20px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.95)";
+            }
+        });
+        const exitBtn = document.querySelector('.btn-secondary');
+        exitBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.style.transition = 'opacity 1s ease';
+            document.body.style.opacity = '0';
+            
+            setTimeout(() => {
+                window.location.href = 'https://www.google.com';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

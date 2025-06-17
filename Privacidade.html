@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        script-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self';
+        object-src 'none';
+        frame-ancestors 'none';
+      ">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - Mago.bet</title>
+      <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-green: #0d1f0d;
+            --green: #1a471a;
+            --light-green: #2d6d2d;
+            --bright-green: #00cc66;
+            --black: #000000;
+            --white: #ffffff;
+            --light-gray: #f0f0f0;
+            --dark-gray: #222222;
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+            padding-top: 100px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--bright-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 31, 13, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--bright-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            animation: pulse 2s infinite;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--bright-green);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+
+        .privacy-banner {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--bright-green);
+        }
+
+        .privacy-banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .privacy-banner p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--light-gray);
+        }
+
+        .privacy-content {
+            background-color: rgba(13, 31, 13, 0.7);
+            border-radius: 15px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .privacy-section {
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(0, 204, 102, 0.2);
+        }
+
+        .privacy-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .privacy-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bright-green);
+        }
+
+        .privacy-section h2 i {
+            font-size: 1.8rem;
+            color: var(--bright-green);
+        }
+
+        .privacy-section p, .privacy-section li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #d0d0d0;
+        }
+
+        .privacy-section ul {
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        .privacy-section li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .privacy-section li:before {
+            content: "•";
+            color: var(--bright-green);
+            font-size: 1.5rem;
+            position: absolute;
+            left: -20px;
+            top: -5px;
+        }
+
+        .highlight {
+            background: rgba(0, 204, 102, 0.1);
+            border-left: 4px solid var(--bright-green);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+
+        .data-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .data-card {
+            background: rgba(45, 109, 45, 0.3);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid var(--light-green);
+        }
+
+        .data-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .data-card h3 i {
+            color: var(--bright-green);
+        }
+
+        .update-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(45, 109, 45, 0.3);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border: 1px solid var(--light-green);
+        }
+
+        .update-info i {
+            color: var(--bright-green);
+            font-size: 1.5rem;
+        }
+
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .right-card {
+            background: rgba(13, 31, 13, 0.5);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid var(--bright-green);
+        }
+
+        .right-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--bright-green);
+        }
+
+        .right-card h3 i {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            background-color: var(--black);
+            padding: 80px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--bright-green);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--dark-green);
+            color: var(--bright-green);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bright-green);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--bright-green);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-links .warning {
+            color: #ff6b6b;
+        }
+
+        footer p {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        @media (max-width: 992px) {
+            .privacy-content {
+                padding: 40px;
+            }
+            
+            .privacy-banner h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .privacy-content {
+                padding: 30px 20px;
+            }
+            
+            .privacy-banner {
+                padding: 80px 0;
+            }
+            
+            .privacy-banner h1 {
+                font-size: 2.3rem;
+            }
+            
+            .privacy-section h2 {
+                font-size: 1.7rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding-top: 80px;
+                font-size: 16px;
+            }
+            
+            .privacy-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .privacy-section h2 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .privacy-section h2 i {
+                font-size: 1.5rem;
+            }
+            
+            .update-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </a>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar ao Site
+            </a>
+        </div>
+    </nav>
+    <section class="privacy-banner">
+        <div class="container">
+            <h1>Política de Privacidade</h1>
+            <p>Entenda como protegemos e utilizamos suas informações na plataforma Mago.bet</p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="privacy-content">
+            <div class="privacy-section">
+                <h2><i class="fas fa-user-shield"></i> Introdução</h2>
+                <p>Esta Política de Privacidade explica como a Visionary Entertainment Group ("nós", "nosso" ou "a empresa"), proprietária da plataforma Mago.bet, coleta, utiliza, armazena, compartilha e protege as informações dos usuários.</p>
+                <p>Ao utilizar nossos serviços, você concorda com as práticas descritas nesta política. Esta política se aplica a todos os serviços oferecidos através do site Mago.bet e aplicativos relacionados.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-database"></i> Informações que Coletamos</h2>
+                <p>Coletamos diferentes tipos de informações para fornecer e melhorar nossos serviços:</p>
+                
+                <div class="data-types">
+                    <div class="data-card">
+                        <h3><i class="fas fa-user"></i> Informações Pessoais</h3>
+                        <p>Nome completo, data de nascimento, endereço de e-mail, número de telefone, endereço residencial e documentos de identificação quando necessário para verificação.</p>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h3><i class="fas fa-money-bill-wave"></i> Informações Financeiras</h3>
+                        <p>Dados de pagamento, histórico de transações, métodos de pagamento preferidos e informações relacionadas a depósitos e saques.</p>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h3><i class="fas fa-laptop"></i> Dados Técnicos</h3>
+                        <p>Endereço IP, tipo de navegador, versão, páginas visitadas, horário e data da visita, tempo gasto nessas páginas e outros dados de diagnóstico.</p>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h3><i class="fas fa-gamepad"></i> Dados de Uso</h3>
+                        <p>Histórico de jogos, preferências de jogo, valores apostados, ganhos e padrões de comportamento na plataforma.</p>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <p><strong>Informações Sensíveis:</strong> Não coletamos intencionalmente informações sensíveis como raça, etnia, opiniões políticas, crenças religiosas, dados biométricos ou genéticos, sem seu consentimento explícito.</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-cogs"></i> Como Utilizamos Suas Informações</h2>
+                <p>Utilizamos as informações coletadas para as seguintes finalidades:</p>
+                <ul>
+                    <li>Fornecer, operar e manter nossos serviços</li>
+                    <li>Verificar sua identidade e prevenir fraudes</li>
+                    <li>Processar transações financeiras</li>
+                    <li>Enviar comunicações importantes sobre sua conta</li>
+                    <li>Personalizar sua experiência na plataforma</li>
+                    <li>Desenvolver novos produtos, serviços e funcionalidades</li>
+                    <li>Cumprir obrigações legais e regulatórias</li>
+                    <li>Monitorar e analisar padrões de uso para melhorar nossos serviços</li>
+                    <li>Proteger a segurança e integridade da plataforma</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Base Legal para Processamento:</strong> Nosso processamento de dados pessoais é baseado em: (a) necessidade para execução de contrato; (b) cumprimento de obrigações legais; (c) legítimo interesse comercial; (d) seu consentimento quando aplicável.</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-share-alt"></i> Compartilhamento de Informações</h2>
+                <p>Podemos compartilhar suas informações nas seguintes situações:</p>
+                <ul>
+                    <li><strong>Provedores de Serviços:</strong> Com empresas que prestam serviços em nosso nome (processamento de pagamentos, verificação de identidade, análise de dados)</li>
+                    <li><strong>Autoridades Reguladoras:</strong> Quando exigido por lei ou para cumprir obrigações legais</li>
+                    <li><strong>Parceiros Comerciais:</strong> Com parceiros estratégicos para oferta de serviços conjuntos (sempre com seu consentimento)</li>
+                    <li><strong>Transferências Empresariais:</strong> Em caso de fusão, aquisição ou venda de ativos</li>
+                    <li><strong>Proteção de Direitos:</strong> Quando necessário para proteger nossos direitos, propriedade ou segurança, ou de nossos usuários</li>
+                </ul>
+                
+                <p><strong>Transferências Internacionais:</strong> Suas informações podem ser transferidas e processadas em países fora do Brasil. Garantimos que essas transferências seguem medidas de segurança adequadas.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-lock"></i> Segurança de Dados</h2>
+                <p>Implementamos medidas técnicas e organizacionais robustas para proteger suas informações:</p>
+                
+                <div class="data-types">
+                    <div class="data-card">
+                        <h3><i class="fas fa-shield-alt"></i> Criptografia</h3>
+                        <p>Dados transmitidos são protegidos com criptografia SSL de 256 bits. Dados sensíveis armazenados são criptografados usando padrões AES-256.</p>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h3><i class="fas fa-user-lock"></i> Controle de Acesso</h3>
+                        <p>Acesso restrito a pessoal autorizado com necessidade de conhecer, protegido por autenticação de dois fatores.</p>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h3><i class="fas fa-fire-extinguisher"></i> Prevenção a Vazamentos</h3>
+                        <p>Sistemas de detecção e prevenção de intrusões, firewalls de última geração e monitoramento contínuo.</p>
+                    </div>
+                    
+                    <div class="data-card">
+                        <h3><i class="fas fa-sync-alt"></i> Backups</h3>
+                        <p>Backups regulares e redundância de dados em múltiplos locais geográficos para garantir disponibilidade.</p>
+                    </div>
+                </div>
+                
+                <p>Realizamos auditorias regulares de segurança e testes de penetração para garantir a efetividade de nossas medidas de proteção.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-user-check"></i> Seus Direitos de Privacidade</h2>
+                <p>De acordo com a LGPD (Lei Geral de Proteção de Dados), você tem os seguintes direitos:</p>
+                
+                <div class="rights-grid">
+                    <div class="right-card">
+                        <h3><i class="fas fa-eye"></i> Acesso</h3>
+                        <p>Solicitar cópia dos seus dados pessoais que mantemos</p>
+                    </div>
+                    
+                    <div class="right-card">
+                        <h3><i class="fas fa-edit"></i> Retificação</h3>
+                        <p>Solicitar correção de dados incompletos ou inexatos</p>
+                    </div>
+                    
+                    <div class="right-card">
+                        <h3><i class="fas fa-trash-alt"></i> Exclusão</h3>
+                        <p>Solicitar exclusão de seus dados pessoais em determinadas circunstâncias</p>
+                    </div>
+                    
+                    <div class="right-card">
+                        <h3><i class="fas fa-ban"></i> Oposição</h3>
+                        <p>Opor-se ao processamento de seus dados pessoais</p>
+                    </div>
+                    
+                    <div class="right-card">
+                        <h3><i class="fas fa-pause"></i> Restrição</h3>
+                        <p>Solicitar restrição do processamento de seus dados</p>
+                    </div>
+                    
+                    <div class="right-card">
+                        <h3><i class="fas fa-portrait"></i> Portabilidade</h3>
+                        <p>Receber seus dados em formato estruturado e comumente usado</p>
+                    </div>
+                </div>
+                
+                <p>Para exercer seus direitos, entre em contato através do e-mail: privacidade@mago.bet. Responderemos dentro de 15 dias úteis.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-cookie"></i> Cookies e Tecnologias Semelhantes</h2>
+                <p>Utilizamos cookies e tecnologias semelhantes para:</p>
+                <ul>
+                    <li>Funcionamento essencial da plataforma</li>
+                    <li>Lembrar suas preferências e configurações</li>
+                    <li>Analisar padrões de uso para melhorias</li>
+                    <li>Personalizar conteúdo e anúncios</li>
+                </ul>
+                
+                <p>Você pode controlar o uso de cookies através das configurações do seu navegador. No entanto, desativar cookies essenciais pode afetar a funcionalidade da plataforma.</p>
+                
+                <div class="highlight">
+                    <p><strong>Cookies Necessários:</strong> Essenciais para funcionamento do site, não podem ser desativados.</p>
+                    <p><strong>Cookies de Preferência:</strong> Permitem lembrar suas escolhas.</p>
+                    <p><strong>Cookies Estatísticos:</strong> Ajudam-nos a entender como você usa nosso site.</p>
+                    <p><strong>Cookies de Marketing:</strong> Usados para exibir anúncios relevantes.</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-child"></i> Proteção de Menores</h2>
+                <p>Nossos serviços não são destinados a menores de 18 anos. Não coletamos intencionalmente informações de menores.</p>
+                <p>Se tomarmos conhecimento de que coletamos informações de um menor sem verificação do consentimento parental, tomaremos medidas para remover essas informações de nossos servidores.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-sync-alt"></i> Alterações nesta Política</h2>
+                <p>Podemos atualizar esta Política de Privacidade periodicamente. A versão mais recente será sempre publicada em nosso site com a data de atualização.</p>
+                <p>Alterações materiais serão comunicadas através de aviso em nossa plataforma ou por e-mail, quando apropriado.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-headset"></i> Contato</h2>
+                <p>Se tiver dúvidas sobre esta Política de Privacidade ou sobre como tratamos seus dados pessoais, entre em contato conosco:</p>
+                <ul>
+                    <li><strong>Encarregado de Dados e CEO (DPO):</strong> Carlos Mendes</li>
+                    <li><strong>E-mail:</strong> mago.bet.com@gmail.com</li>
+
+            </div>
+
+            <div class="update-info">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <p><strong>Última atualização:</strong> 13 de Junho de 2025</p>
+                    <p>Esta versão substitui todas as políticas de privacidade anteriores da Mago.bet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mago.bet777?igsh=c2Z4aGNzdzRieXYz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1HQ9xi4Md6/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/calos-da-silva-mendes-85149536b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="Termos.html">Termos de Uso</a>
+                
+                    <a href="Responsavel.html">Jogo Responsável</a>
+                    <a href="Aviso18.html" class="warning">Aviso: Conteúdo 18+</a>
+                </div>
+                <p>© 2025 Mago.bet – Todos os direitos reservados. Mago.bet é uma marca registrada da Visionary Entertainment Group.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = "15px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.98)";
+            } else {
+                navbar.style.padding = "20px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.95)";
+            }
+        });
+
+
+        document.querySelectorAll('.privacy-section h2').forEach(header => {
+            header.addEventListener('click', function() {
+                this.scrollIntoView({behavior: 'smooth', block: 'start'});
+            });
+        });
+    </script>
+</body>
+</html>

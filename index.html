@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        script-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+        connect-src 'self';
+        object-src 'none';
+        frame-ancestors 'none';
+      ">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mago.bet | Plataforma de Entretenimento</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-green: #0d1f0d;
+            --green: #1a471a;
+            --light-green: #2d6d2d;
+            --bright-green: #00cc66;
+            --black: #000000;
+            --white: #ffffff;
+            --light-gray: #f0f0f0;
+            --dark-gray: #222222;
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--bright-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .bg-dark {
+            background-color: var(--dark-green);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            border-color: var(--bright-green);
+            color: var(--bright-green);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 204, 102, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--bright-green);
+            color: var(--bright-green);
+            margin-left: 20px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 204, 102, 0.3);
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 31, 13, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--bright-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            animation: pulse 2s infinite;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu li {
+            margin-left: 40px;
+        }
+
+        .menu li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 18px;
+        }
+
+        .menu li a:hover {
+            color: var(--bright-green);
+        }
+
+        .menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bright-green);
+            transition: width 0.3s ease;
+        }
+
+        .menu li a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-gray);
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1001;
+            margin-left: 15px;
+        }
+
+        #hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/gif.gif') center/cover no-repeat;
+        }
+
+        #hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding-top: 60px;
+        }
+
+        #hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            animation: fadeInDown 1s ease;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        #hero p {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--light-gray);
+            animation: fadeInUp 1s ease;
+            font-weight: 300;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-down i {
+            color: var(--bright-green);
+            font-size: 36px;
+        }
+
+        #about {
+            position: relative;
+        }
+
+        #about .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        #about .about-content {
+            padding: 30px;
+        }
+
+        #about h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+
+        #about p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.4);
+            height: 600px;
+            background: url('img/gif.gif') center/cover no-repeat;
+            position: relative;
+        }
+
+        #features {
+            text-align: center;
+            background: url('img/pe.png') center/cover fixed;
+            background-color: rgba(0,0,0,0.8);
+            background-blend-mode: multiply;
+            position: relative;
+        }
+
+        #features h2 {
+            font-size: 3.5rem;
+            margin-bottom: 80px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .feature-card {
+            background-color: rgba(13, 31, 13, 0.9);
+            padding: 50px 30px;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(45deg, var(--bright-green), transparent);
+            transition: height 0.4s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: var(--bright-green);
+        }
+
+        .feature-card .icon {
+            font-size: 60px;
+            color: var(--bright-green);
+            margin-bottom: 30px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .feature-card p {
+            color: var(--light-gray);
+            font-size: 1.2rem;
+        }
+
+        #platform {
+            text-align: center;
+        }
+
+        #platform h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+
+        .platform-showcase {
+            background: linear-gradient(45deg, var(--dark-green), var(--black));
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-top: 40px;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .mockup {
+            position: relative;
+            border: 10px solid var(--black);
+            border-radius: 20px;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            overflow: hidden;
+            height: 500px;
+            transition: all 0.4s ease;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        .mockup:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 40px 60px rgba(0,0,0,0.5);
+        }
+
+        .mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mockup:nth-child(1) {
+            background: url('img/pe.png') center/cover;
+        }
+
+        .mockup:nth-child(2) {
+            background: url('img/mago.png') center/cover;
+        }
+
+        .mockup:nth-child(3) {
+            background: url('https://images.unsplash.com/photo-1543365067-f488401f1e6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+        }
+
+        #vision {
+            text-align: center;
+            background: linear-gradient(45deg, var(--dark-green), var(--black));
+            position: relative;
+            overflow: hidden;
+        }
+
+        #vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover fixed;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        #vision .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        #vision h2 {
+            font-size: 3.5rem;
+            margin-bottom: 60px;
+        }
+
+        .highlight {
+            font-size: 2.2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            color: var(--light-gray);
+            font-weight: 500;
+            padding: 60px;
+            border: 2px solid var(--bright-green);
+            border-radius: 15px;
+            position: relative;
+            background: rgba(13, 31, 13, 0.7);
+            line-height: 1.6;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .highlight::before, .highlight::after {
+            content: '"';
+            position: absolute;
+            font-size: 8rem;
+            color: var(--bright-green);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .highlight::before {
+            top: 20px;
+            left: 30px;
+        }
+
+        .highlight::after {
+            bottom: 20px;
+            right: 30px;
+            transform: rotate(180deg);
+        }
+
+        #contact {
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover fixed;
+            background-color: rgba(0,0,0,0.8);
+            background-blend-mode: multiply;
+            position: relative;
+        }
+
+        #contact h2 {
+            font-size: 3.5rem;
+            margin-bottom: 80px;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background-color: rgba(13, 31, 13, 0.9);
+            padding: 50px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            width: 100%;
+        }
+
+        .contact-info ul {
+            list-style: none;
+        }
+
+        .contact-info ul li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .contact-info ul li:hover {
+            background-color: rgba(0, 204, 102, 0.1);
+            transform: translateX(5px);
+        }
+
+        .contact-info ul li i {
+            font-size: 28px;
+            color: var(--bright-green);
+            margin-right: 20px;
+            min-width: 40px;
+            padding-top: 5px;
+        }
+
+        .contact-info ul li span {
+            line-height: 1.6;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            margin: 40px 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .language-selector span {
+            font-size: 18px;
+            color: var(--light-gray);
+        }
+
+        .flags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .flags a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--light-gray);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            min-width: 80px;
+            cursor: pointer;
+        }
+
+        .flags a:hover {
+            background-color: rgba(0, 204, 102, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .flags img {
+            width: 40px;
+            height: 30px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 3px;
+            margin-bottom: 8px;
+        }
+
+        .flags span {
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            padding: 80px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--bright-green);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--dark-green);
+            color: var(--bright-green);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-green);
+            color: var(--dark-green);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 204, 102, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bright-green);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--bright-green);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-links .warning {
+            color: #ff6b6b;
+        }
+
+        footer p {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-30px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1200px) {
+            #hero h1 {
+                font-size: 3.8rem;
+            }
+            
+            .highlight {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            #about .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 500px;
+                order: -1;
+            }
+            
+            #hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            #hero p {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: rgba(13, 31, 13, 0.98);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 120px 30px 30px;
+                transition: all 0.5s ease;
+                z-index: 999;
+                box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .menu li {
+                margin: 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(0, 204, 102, 0.2);
+            }
+
+            .menu li:last-child {
+                border-bottom: none;
+            }
+
+            .menu li a {
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                padding: 15px 0;
+                width: 100%;
+            }
+
+            .menu li a i {
+                margin-right: 15px;
+                width: 30px;
+                text-align: center;
+                font-size: 24px;
+            }
+
+            .hamburger {
+                display: block;
+                color: var(--bright-green);
+            }
+
+            .highlight {
+                font-size: 1.6rem;
+                padding: 40px 20px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .mockup-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mockup {
+                height: 400px;
+                max-width: 400px;
+            }
+            
+
+            #hero h1 {
+                display: none;
+            }
+            
+            #hero p {
+                font-size: 1.3rem;
+            }
+
+            .contact-info {
+                padding: 30px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            #hero h1 {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .feature-card {
+                padding: 40px 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo span {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 2.5rem !important;
+            }
+            
+            .flags a {
+                min-width: 70px;
+                padding: 8px;
+            }
+            
+            .flags img {
+                width: 30px;
+                height: 20px;
+            }
+
+            body {
+                font-size: 16px;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+        }
+        
+        /* Sobre Section */
+        .sobre-section {
+          background-color: #0f0f0f;
+          padding: 50px 20px;
+          color: #e0ffe0;
+        }
+        
+        .sobre-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 40px;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .sobre-conteudo {
+          flex: 1 1 500px;
+        }
+        
+        .sobre-titulo {
+          font-size: 32px;
+          color: #00ff88;
+          margin-bottom: 20px;
+        }
+        
+        .sobre-conteudo p {
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 15px;
+          color: white;
+        }
+        
+        .sobre-imagem {
+          flex: 1 1 400px;
+          max-width: 500px;
+          text-align: center;
+        }
+        
+        .sobre-imagem img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+        }
+        
+        /* Plataforma Section */
+        .plataforma-section {
+          background-color: #0f0f0f;
+          padding: 60px 20px;
+          color: #e0ffe0;
+          text-align: center;
+        }
+        
+        .plataforma-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .plataforma-titulo {
+          font-size: 30px;
+          margin-bottom: 40px;
+          color: #00ff88;
+        }
+        
+        .plataforma-galeria {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+        }
+        
+        .plataforma-item img {
+          width: 100%;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .plataforma-item img:hover {
+          transform: scale(1.03);
+          box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+        }
+        
+        /* Contato Section */
+        .contato-section {
+          background-color: #0f0f0f;
+          padding: 50px 20px;
+          color: #e0ffe0;
+        }
+        
+        .contato-container {
+          max-width: 700px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        
+        .contato-titulo {
+          font-size: 28px;
+          margin-bottom: 30px;
+          color: #00ff88;
+        }
+        
+        .contato-conteudo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .contato-lista {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          width: 100%;
+        }
+        
+        .contato-item {
+          background: #1a1a1a;
+          border: 1px solid #00ff88;
+          border-radius: 12px;
+          padding: 16px 20px;
+          margin-bottom: 15px;
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
+          text-align: left;
+          transition: transform 0.2s, box-shadow 0.3s;
+        }
+        
+        .contato-item:hover {
+          transform: scale(1.02);
+          box-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+        }
+        
+        .contato-item i {
+          font-size: 22px;
+          color: #00ff88;
+          margin-top: 5px;
+        }
+        
+        .contato-item span {
+          font-size: 15px;
+          color: #ccffe6;
+          line-height: 1.4;
+        }
+        
+        @media (max-width: 500px) {
+          .contato-item {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+        
+          .contato-item i {
+            margin-bottom: 8px;
+          }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a href="#" class="logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </a>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <ul class="menu">
+                <li><a href="#hero"><i class="fas fa-home"></i> <span data-translate="menu_home">Início</span></a></li>
+                <li><a href="#sobre"><i class="fas fa-info-circle"></i> <span data-translate="menu_about">Sobre</span></a></li>
+                <li><a href="#features"><i class="fas fa-star"></i> <span data-translate="menu_features">Destaques</span></a></li>
+                <li><a href="#plataforma"><i class="fas fa-desktop"></i> <span data-translate="menu_platform">Plataforma</span></a></li>
+                <li><a href="#vision"><i class="fas fa-eye"></i> <span data-translate="menu_vision">Visão</span></a></li>
+                <li><a href="#contato"><i class="fas fa-envelope"></i> <span data-translate="menu_contact">Contato</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="hero">
+        <div class="container">
+            <h1 data-translate="hero_title">A magia do entretenimento digital começa aqui.</h1>
+            <p data-translate="hero_text">Mago.bet é a plataforma premium que conecta diversão de alta qualidade, tecnologia de ponta e os melhores jogos de cassino de forma segura e envolvente.</p>
+            <div class="buttons">
+                <a href="Projeto.html" class="btn btn-primary" data-translate="hero_button1">Conheça o Projeto</a>
+                <a href="#contato" class="btn btn-outline" data-translate="hero_button2">Entrar em Contato</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    <section id="sobre" class="sobre-section">
+        <div class="sobre-container">
+            <div class="sobre-conteudo">
+                <h2 class="sobre-titulo" data-translate="about_title">O que é a Mago.bet?</h2>
+                <p data-translate="about_text1">A Mago.bet é uma plataforma inovadora e premium de jogos de cassino online, que oferece uma experiência totalmente gratuita com os mesmos jogos de alta qualidade das maiores operadoras internacionais. Nosso compromisso é com a excelência em cada detalhe.</p>
+                <p data-translate="about_text2">Fundada por especialistas com mais de 15 anos de experiência no mercado de jogos online, a Mago.bet combina tecnologia de ponta com design imersivo para criar uma experiência única para nossos usuários.</p>
+                <p data-translate="about_text3">Nosso objetivo é crescer de forma sustentável e responsável, tornando-nos uma referência global em entretenimento digital de alta qualidade, sempre priorizando a segurança e satisfação de nossos usuários.</p>
+            </div>
+            <div class="sobre-imagem">
+                <img src="img/ma.jpg" alt="Imagem institucional Mago.bet" />
+            </div>
+        </div>
+    </section>
+    <section id="features" class="section">
+        <div class="container">
+            <h2 data-translate="features_title">Destaques Exclusivos da Plataforma</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h3 data-translate="feature1_title">Biblioteca Premium de Jogos</h3>
+                    <p data-translate="feature1_text">Mais de 30 jogos de provedores famosos mundialmente, incluindo slots, blackjack, roleta e poker, todos com gráficos de alta definição e mecânicas inovadoras.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 data-translate="feature2_title">Tecnologia Inteligente</h3>
+                    <p data-translate="feature2_text">Plataforma alimentada por IA que aprende com suas preferências para oferecer recomendações personalizadas e uma experiência cada vez mais envolvente.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 data-translate="feature3_title">Segurança e Confiabilidade</h3>
+                    <p data-translate="feature3_text">Proteção de última geração com criptografia SSL de 256 bits e protocolos avançados para garantir total segurança dos seus dados e transações.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 data-translate="feature4_title">Acesso Universal</h3>
+                    <p data-translate="feature4_text">Plataforma otimizada para todos os dispositivos - desfrute da mesma experiência premium em smartphones, tablets, laptops e desktops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="plataforma" class="plataforma-section">
+        <div class="plataforma-container">
+            <h2 class="plataforma-titulo" data-translate="platform_title">Conheça Nossa Plataforma</h2>
+            <div class="plataforma-galeria">
+                <div class="plataforma-item">
+                    <img src="img/pl.png" alt="Visão geral da plataforma" />
+                </div>
+                <div class="plataforma-item">
+                    <img src="img/pl2.png" alt="Funcionalidades da Mago.bet" />
+                </div>
+                <div class="plataforma-item">
+                    <img src="img/pl3.png" alt="Interface da plataforma" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="vision" class="section">
+        <div class="container">
+            <h2 data-translate="vision_title">Nossa Visão Estratégica</h2>
+            <p class="highlight" data-translate="vision_text">Estamos nos preparando para o próximo grande passo: lançamento de jogos com dinheiro real, obtenção de licenciamento internacional e expansão para mercados globais, sempre mantendo nosso compromisso com excelência, segurança e responsabilidade.</p>
+        </div>
+    </section>
+    <section id="contato" class="contato-section">
+        <div class="contato-container">
+            <h2 class="contato-titulo" data-translate="contact_title">Contato Profissional</h2>
+            <div class="contato-conteudo">
+                <ul class="contato-lista">
+                    <li class="contato-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><strong data-translate="contact_email">Email </strong>contato.mago.bet@gmail.com<br><span data-translate="contact_email_info">Resposta em até 24 horas úteis</span></span>
+                    </li>
+                    <li class="contato-item">
+                        <i class="fab fa-instagram"></i>
+                        <span><strong data-translate="contact_instagram">Instagram Oficial:</strong> @mago.bet777<br><span data-translate="contact_instagram_info">Siga-nos para novidades exclusivas</span></span>
+                    </li>
+                    <li class="contato-item">
+                        <i class="fas fa-globe-americas"></i>
+                        <span><strong data-translate="contact_location">Operação Global:</strong> Brasil (HQ Digital)<br><span data-translate="contact_location_info">Preparação para expansão internacional</span></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-hat-wizard"></i>
+                    <span>Mago.bet</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mago.bet777?igsh=c2Z4aGNzdzRieXYz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1HQ9xi4Md6/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/calos-da-silva-mendes-85149536b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="Termos.html" data-translate="footer_terms">Termos de Uso</a>
+                    <a href="Privacidade.html" data-translate="footer_privacy">Política de Privacidade</a>
+                    <a href="Aviso18.html" class="warning" data-translate="footer_warning">Aviso: Conteúdo 18+</a>
+                    <a href="Responsavel.html" data-translate="footer_responsible">Jogo Responsável</a>
+                </div>
+                
+                <!-- Language Selector -->
+<div class="language-selector">
+  <span>Selecione seu idioma:</span>
+  <div class="flags">
+    <a href="#" data-lang="pt">
+      <img src="img/br.png" width="32" alt="Brasil">
+      <span>Português</span>
+    </a>
+    <a href="#" data-lang="en">
+      <img src="img/us.png" width="32" alt="English">
+      <span>English</span>
+    </a>
+    <a href="#" data-lang="ru">
+      <img src="img/ru.png" width="32" alt="Русский">
+      <span>Русский</span>
+    </a>
+    <a href="#" data-lang="de">
+      <img src="img/de.png" width="32" alt="Deutsch">
+      <span>Deutsch</span>
+    </a>
+    <a href="#" data-lang="zh">
+      <img src="img/cn.png" width="32" alt="中文">
+      <span>中文</span>
+    </a>
+    <a href="#" data-lang="it">
+      <img src="img/it.png" width="32" alt="Italiano">
+      <span>Italiano</span>
+    </a>
+  </div>
+</div>
+<style>
+  .language-selector {
+  font-family: sans-serif;
+}
+
+.flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.flags a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.flags a:hover {
+  background-color: #f0f0f0;
+}
+</style>
+                
+                <p data-translate="footer_copyright">© 2025 Mago.bet – Todos os direitos reservados. Mago.bet é uma marca registrada da Visionary Entertainment Group.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sistema de tradução completo
+        const translations = {
+            pt: {
+                menu_home: "Início",
+                menu_about: "Sobre",
+                menu_features: "Destaques",
+                menu_platform: "Plataforma",
+                menu_vision: "Visão",
+                menu_contact: "Contato",
+                hero_title: "A magia do entretenimento digital começa aqui.",
+                hero_text: "Mago.bet é a plataforma premium que conecta diversão de alta qualidade, tecnologia de ponta e os melhores jogos de cassino de forma segura e envolvente.",
+                hero_button1: "Conheça o Projeto",
+                hero_button2: "Entrar em Contato",
+                about_title: "O que é a Mago.bet?",
+                about_text1: "A Mago.bet é uma plataforma inovadora e premium de jogos de cassino online, que oferece uma experiência totalmente gratuita com os mesmos jogos de alta qualidade das maiores operadoras internacionais. Nosso compromisso é com a excelência em cada detalhe.",
+                about_text2: "Fundada por especialistas com mais de 15 anos de experiência no mercado de jogos online, a Mago.bet combina tecnologia de ponta com design imersivo para criar uma experiência única para nossos usuários.",
+                about_text3: "Nosso objetivo é crescer de forma sustentável e responsável, tornando-nos uma referência global em entretenimento digital de alta qualidade, sempre priorizando a segurança e satisfação de nossos usuários.",
+                features_title: "Destaques Exclusivos da Plataforma",
+                feature1_title: "Biblioteca Premium de Jogos",
+                feature1_text: "Mais de 30 jogos de provedores famosos mundialmente, incluindo slots, blackjack, roleta e poker, todos com gráficos de alta definição e mecânicas inovadoras.",
+                feature2_title: "Tecnologia Inteligente",
+                feature2_text: "Plataforma alimentada por IA que aprende com suas preferências para oferecer recomendações personalizadas e uma experiência cada vez mais envolvente.",
+                feature3_title: "Segurança e Confiabilidade",
+                feature3_text: "Proteção de última geração com criptografia SSL de 256 bits e protocolos avançados para garantir total segurança dos seus dados e transações.",
+                feature4_title: "Acesso Universal",
+                feature4_text: "Plataforma otimizada para todos os dispositivos - desfrute da mesma experiência premium em smartphones, tablets, laptops e desktops.",
+                platform_title: "Conheça Nossa Plataforma",
+                vision_title: "Nossa Visão Estratégica",
+                vision_text: "Estamos nos preparando para o próximo grande passo: lançamento de jogos com dinheiro real, obtenção de licenciamento internacional e expansão para mercados globais, sempre mantendo nosso compromisso com excelência, segurança e responsabilidade.",
+                contact_title: "Contato Profissional",
+                contact_email: "Email ",
+                contact_email_info: "Resposta em até 24 horas úteis",
+                contact_instagram: "Instagram Oficial:",
+                contact_instagram_info: "Siga-nos para novidades exclusivas",
+                contact_location: "Operação Global:",
+                contact_location_info: "Preparação para expansão internacional",
+                footer_terms: "Termos de Uso",
+                footer_privacy: "Política de Privacidade",
+                footer_warning: "Aviso: Conteúdo 18+",
+                footer_responsible: "Jogo Responsável",
+                footer_copyright: "© 2025 Mago.bet – Todos os direitos reservados. Mago.bet é uma marca registrada da Visionary Entertainment Group.",
+                language_selector: "Selecione seu idioma:"
+            },
+            en: {
+                menu_home: "Home",
+                menu_about: "About",
+                menu_features: "Features",
+                menu_platform: "Platform",
+                menu_vision: "Vision",
+                menu_contact: "Contact",
+                hero_title: "The magic of digital entertainment starts here.",
+                hero_text: "Mago.bet is the premium platform that connects high-quality entertainment, cutting-edge technology and the best casino games in a safe and engaging way.",
+                hero_button1: "Discover the Project",
+                hero_button2: "Contact Us",
+                about_title: "What is Mago.bet?",
+                about_text1: "Mago.bet is an innovative and premium online casino gaming platform that offers a completely free experience with the same high-quality games from the largest international operators. Our commitment is to excellence in every detail.",
+                about_text2: "Founded by experts with over 15 years of experience in the online gaming market, Mago.bet combines cutting-edge technology with immersive design to create a unique experience for our users.",
+                about_text3: "Our goal is to grow sustainably and responsibly, becoming a global reference in high-quality digital entertainment, always prioritizing the safety and satisfaction of our users.",
+                features_title: "Exclusive Platform Features",
+                feature1_title: "Premium Game Library",
+                feature1_text: "Over 30 games from world-famous providers, including slots, blackjack, roulette and poker, all with high-definition graphics and innovative mechanics.",
+                feature2_title: "Smart Technology",
+                feature2_text: "AI-powered platform that learns from your preferences to offer personalized recommendations and an increasingly engaging experience.",
+                feature3_title: "Security and Reliability",
+                feature3_text: "State-of-the-art protection with 256-bit SSL encryption and advanced protocols to ensure total security of your data and transactions.",
+                feature4_title: "Universal Access",
+                feature4_text: "Platform optimized for all devices - enjoy the same premium experience on smartphones, tablets, laptops and desktops.",
+                platform_title: "Discover Our Platform",
+                vision_title: "Our Strategic Vision",
+                vision_text: "We are preparing for the next big step: launching real money games, obtaining international licensing and expanding into global markets, always maintaining our commitment to excellence, security and responsibility.",
+                contact_title: "Professional Contact",
+                contact_email: "Email ",
+                contact_email_info: "Response within 24 business hours",
+                contact_instagram: "Official Instagram:",
+                contact_instagram_info: "Follow us for exclusive news",
+                contact_location: "Global Operation:",
+                contact_location_info: "Preparing for international expansion",
+                footer_terms: "Terms of Use",
+                footer_privacy: "Privacy Policy",
+                footer_warning: "Warning: 18+ Content",
+                footer_responsible: "Responsible Gaming",
+                footer_copyright: "© 2025 Mago.bet – All rights reserved. Mago.bet is a registered trademark of Visionary Entertainment Group.",
+                language_selector: "Select your language:"
+            },
+            ru: {
+                menu_home: "Главная",
+                menu_about: "О нас",
+                menu_features: "Особенности",
+                menu_platform: "Платформа",
+                menu_vision: "Видение",
+                menu_contact: "Контакты",
+                hero_title: "Магия цифровых развлечений начинается здесь.",
+                hero_text: "Mago.bet - это премиальная платформа, объединяющая высококачественные развлечения, передовые технологии и лучшие казино-игры безопасным и увлекательным способом.",
+                hero_button1: "Узнать о проекте",
+                hero_button2: "Связаться с нами",
+                about_title: "Что такое Mago.bet?",
+                about_text1: "Mago.bet - это инновационная и премиальная платформа для онлайн-казино, предлагающая совершенно бесплатный опыт с такими же высококачественными играми от крупнейших международных операторов. Наша цель - совершенство в каждой детали.",
+                about_text2: "Основанная экспертами с более чем 15-летним опытом работы на рынке онлайн-игр, Mago.bet сочетает передовые технологии с захватывающим дизайном, чтобы создать уникальный опыт для наших пользователей.",
+                about_text3: "Наша цель - устойчивый и ответственный рост, становясь глобальным ориентиром в области высококачественных цифровых развлечений, всегда ставя во главу угла безопасность и удовлетворенность наших пользователей.",
+                features_title: "Эксклюзивные особенности платформы",
+                feature1_title: "Премиальная игровая библиотека",
+                feature1_text: "Более 30 игр от всемирно известных провайдеров, включая слоты, блэкджек, рулетку и покер, все с графикой высокой четкости и инновационной механикой.",
+                feature2_title: "Умные технологии",
+                feature2_text: "Платформа на базе искусственного интеллекта, которая учится на ваших предпочтениях, чтобы предлагать персонализированные рекомендации и все более увлекательный опыт.",
+                feature3_title: "Безопасность и надежность",
+                feature3_text: "Современная защита с 256-битным SSL-шифрованием и передовыми протоколами для обеспечения полной безопасности ваших данных и транзакций.",
+                feature4_title: "Универсальный доступ",
+                feature4_text: "Платформа оптимизирована для всех устройств - наслаждайтесь одинаковым премиальным опытом на смартфонах, планшетах, ноутбуках и настольных компьютерах.",
+                platform_title: "Откройте для себя нашу платформу",
+                vision_title: "Наше стратегическое видение",
+                vision_text: "Мы готовимся к следующему большому шагу: запуск игр на реальные деньги, получение международных лицензий и выход на глобальные рынки, всегда сохраняя нашу приверженность совершенству, безопасности и ответственности.",
+                contact_title: "Профессиональные контакты",
+                contact_email: "Email ",
+                contact_email_info: "Ответ в течение 24 рабочих часов",
+                contact_instagram: "Официальный Instagram:",
+                contact_instagram_info: "Следите за нами для эксклюзивных новостей",
+                contact_location: "Глобальная операция:",
+                contact_location_info: "Подготовка к международному расширению",
+                footer_terms: "Условия использования",
+                footer_privacy: "Политика конфиденциальности",
+                footer_warning: "Предупреждение: контент 18+",
+                footer_responsible: "Ответственная игра",
+                footer_copyright: "© 2025 Mago.bet – Все права защищены. Mago.bet является зарегистрированным товарным знаком Visionary Entertainment Group.",
+                language_selector: "Выберите язык:"
+            },
+            de: {
+                menu_home: "Startseite",
+                menu_about: "Über uns",
+                menu_features: "Merkmale",
+                menu_platform: "Plattform",
+                menu_vision: "Vision",
+                menu_contact: "Kontakt",
+                hero_title: "Die Magie der digitalen Unterhaltung beginnt hier.",
+                hero_text: "Mago.bet ist die Premium-Plattform, die hochwertige Unterhaltung, modernste Technologie und die besten Casinospiele auf sichere und ansprechende Weise verbindet.",
+                hero_button1: "Entdecken Sie das Projekt",
+                hero_button2: "Kontakt aufnehmen",
+                about_title: "Was ist Mago.bet?",
+                about_text1: "Mago.bet ist eine innovative und hochwertige Online-Casino-Plattform, die ein völlig kostenloses Erlebnis mit den gleichen hochwertigen Spielen der größten internationalen Anbieter bietet. Unser Engagement gilt der Exzellenz in jedem Detail.",
+                about_text2: "Gegründet von Experten mit über 15 Jahren Erfahrung im Online-Gaming-Markt, kombiniert Mago.bet modernste Technologie mit einem immersiven Design, um ein einzigartiges Erlebnis für unsere Benutzer zu schaffen.",
+                about_text3: "Unser Ziel ist es, nachhaltig und verantwortungsbewusst zu wachsen und zu einem globalen Bezugspunkt für hochwertige digitale Unterhaltung zu werden, wobei wir stets die Sicherheit und Zufriedenheit unserer Nutzer priorisieren.",
+                features_title: "Exklusive Plattformfunktionen",
+                feature1_title: "Premium-Spielbibliothek",
+                feature1_text: "Über 30 Spiele von weltbekannten Anbietern, darunter Slots, Blackjack, Roulette und Poker, alle mit hochauflösender Grafik und innovativer Mechanik.",
+                feature2_title: "Intelligente Technologie",
+                feature2_text: "KI-gestützte Plattform, die aus Ihren Präferenzen lernt, um personalisierte Empfehlungen und ein zunehmend fesselndes Erlebnis zu bieten.",
+                feature3_title: "Sicherheit und Zuverlässigkeit",
+                feature3_text: "Modernster Schutz mit 256-Bit-SSL-Verschlüsselung und fortschrittlichen Protokollen zur Gewährleistung der vollständigen Sicherheit Ihrer Daten und Transaktionen.",
+                feature4_title: "Universeller Zugang",
+                feature4_text: "Für alle Geräte optimierte Plattform - genießen Sie das gleiche Premium-Erlebnis auf Smartphones, Tablets, Laptops und Desktops.",
+                platform_title: "Entdecken Sie unsere Plattform",
+                vision_title: "Unsere strategische Vision",
+                vision_text: "Wir bereiten uns auf den nächsten großen Schritt vor: die Einführung von Echtgeldspielen, die Erlangung internationaler Lizenzen und die Expansion auf globale Märkte, wobei wir stets unser Engagement für Exzellenz, Sicherheit und Verantwortung aufrechterhalten.",
+                contact_title: "Professioneller Kontakt",
+                contact_email: "Email ",
+                contact_email_info: "Antwort innerhalb von 24 Geschäftsstunden",
+                contact_instagram: "Offizielles Instagram:",
+                contact_instagram_info: "Folgen Sie uns für exklusive Neuigkeiten",
+                contact_location: "Globaler Betrieb:",
+                contact_location_info: "Vorbereitung auf internationale Expansion",
+                footer_terms: "Nutzungsbedingungen",
+                footer_privacy: "Datenschutzrichtlinie",
+                footer_warning: "Warnung: Inhalt 18+",
+                footer_responsible: "Verantwortungsvolles Spielen",
+                footer_copyright: "© 2025 Mago.bet – Alle Rechte vorbehalten. Mago.bet ist eine eingetragene Marke der Visionary Entertainment Group.",
+                language_selector: "Wählen Sie Ihre Sprache:"
+            },
+            zh: {
+                menu_home: "首页",
+                menu_about: "关于我们",
+                menu_features: "特点",
+                menu_platform: "平台",
+                menu_vision: "愿景",
+                menu_contact: "联系我们",
+                hero_title: "数字娱乐的魔力从这里开始。",
+                hero_text: "Mago.bet是连接高品质娱乐、尖端技术和最佳赌场游戏的优质平台，以安全且引人入胜的方式呈现。",
+                hero_button1: "了解项目",
+                hero_button2: "联系我们",
+                about_title: "什么是Mago.bet?",
+                about_text1: "Mago.bet是一个创新且优质的在线赌场游戏平台，提供完全免费的游戏体验，拥有与国际顶级运营商相同的高品质游戏。我们致力于在每个细节上追求卓越。",
+                about_text2: "由在在线游戏市场拥有超过15年经验的专家创立，Mago.bet将尖端技术与沉浸式设计相结合，为用户创造独特体验。",
+                about_text3: "我们的目标是以可持续和负责任的方式发展，成为高质量数字娱乐的全球标杆，始终优先考虑用户的安全和满意度。",
+                features_title: "独家平台特点",
+                feature1_title: "优质游戏库",
+                feature1_text: "30多款来自世界知名提供商的游戏，包括老虎机、二十一点、轮盘赌和扑克，均具有高清图形和创新机制。",
+                feature2_title: "智能技术",
+                feature2_text: "由人工智能驱动的平台，根据您的偏好提供个性化推荐和越来越吸引人的体验。",
+                feature3_title: "安全可靠",
+                feature3_text: "采用256位SSL加密和先进协议的最先进保护，确保您的数据和交易完全安全。",
+                feature4_title: "通用访问",
+                feature4_text: "平台针对所有设备进行了优化 - 在智能手机、平板电脑、笔记本电脑和台式机上享受相同的优质体验。",
+                platform_title: "了解我们的平台",
+                vision_title: "我们的战略愿景",
+                vision_text: "我们正在为下一步重大举措做准备：推出真钱游戏、获得国际许可并扩展至全球市场，同时始终坚守我们对卓越、安全和责任的承诺。",
+                contact_title: "专业联系",
+                contact_email: "邮箱 ",
+                contact_email_info: "24个工作小时内回复",
+                contact_instagram: "官方Instagram:",
+                contact_instagram_info: "关注我们获取独家新闻",
+                contact_location: "全球运营:",
+                contact_location_info: "为国际扩张做准备",
+                footer_terms: "使用条款",
+                footer_privacy: "隐私政策",
+                footer_warning: "警告: 18+内容",
+                footer_responsible: "负责任游戏",
+                footer_copyright: "© 2025 Mago.bet – 保留所有权利。Mago.bet是Visionary Entertainment Group的注册商标。",
+                language_selector: "选择您的语言:"
+            },
+            it: {
+                menu_home: "Home",
+                menu_about: "Chi siamo",
+                menu_features: "Caratteristiche",
+                menu_platform: "Piattaforma",
+                menu_vision: "Visione",
+                menu_contact: "Contatti",
+                hero_title: "La magia dell'intrattenimento digitale inizia qui.",
+                hero_text: "Mago.bet è la piattaforma premium che connette intrattenimento di alta qualità, tecnologia all'avanguardia e i migliori giochi da casinò in modo sicuro e coinvolgente.",
+                hero_button1: "Scopri il progetto",
+                hero_button2: "Contattaci",
+                about_title: "Cos'è Mago.bet?",
+                about_text1: "Mago.bet è una piattaforma innovativa e premium di giochi da casinò online che offre un'esperienza completamente gratuita con gli stessi giochi di alta qualità dei maggiori operatori internazionali. Il nostro impegno è per l'eccellenza in ogni dettaglio.",
+                about_text2: "Fondata da esperti con oltre 15 anni di esperienza nel mercato del gioco online, Mago.bet combina tecnologia all'avanguardia con un design immersivo per creare un'esperienza unica per i nostri utenti.",
+                about_text3: "Il nostro obiettivo è crescere in modo sostenibile e responsabile, diventando un punto di riferimento globale nell'intrattenimento digitale di alta qualità, sempre dando priorità alla sicurezza e alla soddisfazione dei nostri utenti.",
+                features_title: "Caratteristiche esclusive della piattaforma",
+                feature1_title: "Libreria di giochi premium",
+                feature1_text: "Oltre 30 giochi di fornitori famosi in tutto il mondo, inclusi slot, blackjack, roulette e poker, tutti con grafica ad alta definizione e meccaniche innovative.",
+                feature2_title: "Tecnologia intelligente",
+                feature2_text: "Piattaforma alimentata dall'IA che impara dalle tue preferenze per offrire raccomandazioni personalizzate e un'esperienza sempre più coinvolgente.",
+                feature3_title: "Sicurezza e affidabilità",
+                feature3_text: "Protezione all'avanguardia con crittografia SSL a 256 bit e protocolli avanzati per garantire la massima sicurezza dei tuoi dati e delle tue transazioni.",
+                feature4_title: "Accesso universale",
+                feature4_text: "Piattaforma ottimizzata per tutti i dispositivi: goditi la stessa esperienza premium su smartphone, tablet, laptop e desktop.",
+                platform_title: "Scopri la nostra piattaforma",
+                vision_title: "La nostra visione strategica",
+                vision_text: "Ci stiamo preparando per il prossimo grande passo: il lancio di giochi con denaro reale, l'ottenimento di licenze internazionali e l'espansione nei mercati globali, mantenendo sempre il nostro impegno per l'eccellenza, la sicurezza e la responsabilità.",
+                contact_title: "Contatto professionale",
+                contact_email: "Email ",
+                contact_email_info: "Risposta entro 24 ore lavorative",
+                contact_instagram: "Instagram ufficiale:",
+                contact_instagram_info: "Seguici per news esclusive",
+                contact_location: "Operazione globale:",
+                contact_location_info: "Preparazione per l'espansione internazionale",
+                footer_terms: "Termini di utilizzo",
+                footer_privacy: "Politica sulla privacy",
+                footer_warning: "Avviso: Contenuto 18+",
+                footer_responsible: "Gioco responsabile",
+                footer_copyright: "© 2025 Mago.bet – Tutti i diritti riservati. Mago.bet è un marchio registrato di Visionary Entertainment Group.",
+                language_selector: "Seleziona la tua lingua:"
+            }
+        };
+
+        // Função para mudar o idioma
+        function changeLanguage(lang) {
+            // Salvar preferência de idioma
+            localStorage.setItem('language', lang);
+            
+            // Atualizar todos os elementos com atributo data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Atualizar o título da página
+            document.title = "Mago.bet | " + translations[lang].menu_home;
+        }
+
+        // Inicializar com idioma salvo ou português
+        const savedLang = localStorage.getItem('language') || 'pt';
+        changeLanguage(savedLang);
+
+        // Menu Hamburger Functionality
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = "15px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.98)";
+            } else {
+                navbar.style.padding = "20px 0";
+                navbar.style.backgroundColor = "rgba(13, 31, 13, 0.95)";
+            }
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu');
+
+        hamburger.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            hamburger.innerHTML = menu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.section, .feature-card, .contact-info, .platform-showcase, .mockup, .about-content, .about-image').forEach(el => {
+            el.classList.add('hidden');
+            observer.observe(el);
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Language Selection
+        document.querySelectorAll('.flags a').forEach(flag => {
+            flag.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+    </script>
+</body>
+</html>
